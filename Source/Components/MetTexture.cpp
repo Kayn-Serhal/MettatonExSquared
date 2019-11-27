@@ -89,3 +89,13 @@ int MetTexture::getHeight()
 {
 	return mHeight;
 }
+
+void MetTexture::setBlendMode(SDL_BlendMode blending)
+{
+	SDL_SetTextureAlphaMod(mTexture, blending);
+}
+
+SDL_Texture* MetTexture::getSDLTexture()
+{
+	return mTexture;
+}

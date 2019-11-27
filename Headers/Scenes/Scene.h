@@ -4,11 +4,11 @@
 
 class Scene {
 public:
-	virtual void display();
+	virtual void display() = 0;
 	Scene(Graph* g, Logic* l);
-
+	Logic* logical;
 protected:
 	Graph* graphical;
-	Logic* logical;
+
 	
 };

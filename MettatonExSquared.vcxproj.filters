@@ -60,6 +60,15 @@
     <ClCompile Include="Source\Scenes\Scene.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Logic\Logic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Headers\Logic\TitleScreen\TitleScreenLogic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\GameStateHandler.h">
@@ -80,9 +89,6 @@
     <ClInclude Include="Headers\Graph\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Logic\Logic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Scenes\TitleScreen\TitleScreenScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -93,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Components\MetTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Logic\Logic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

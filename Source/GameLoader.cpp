@@ -6,11 +6,19 @@
 #include "../Headers/Components/MetTexture.h"
 #include "../Headers/Graph/Graph.h"
 #include "../Headers/Scenes/Scene.h"
+#include "../Headers/InputHandler.h"
 
 void GameLoader::loadScene(GamePlayState state)
 {
 
-			TitleScreenScene* sceneToDisplay = new TitleScreenScene(new TitleScreenGraph(GraphicHandler::gameRenderer), new TitleScreenLogic());
-			sceneToDisplay->display();
+	TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(GraphicHandler::gameRenderer);
+	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
+	
+	//Temporary, just for testing purposes
+	InputHandler::setCurrentLogic(titleScreenLogicalManager);
+	GraphicHandler::setCurrentGraph(titleScreenGraphicalManager);
+
+	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, new TitleScreenLogic(titleScreenGraphicalManager));
+	sceneToDisplay->display();
 
 }

@@ -129,6 +129,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\InputHandler.cpp" />
+    <ClCompile Include="Headers\Logic\TitleScreen\TitleScreenLogic.cpp" />
+    <ClCompile Include="Source\Logic\Logic.cpp" />
     <ClCompile Include="Source\Scenes\TitleScreen\TitleScreenScene.cpp" />
     <ClCompile Include="Source\GameLoader.cpp" />
     <ClCompile Include="main.cpp" />

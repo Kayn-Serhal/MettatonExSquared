@@ -2,5 +2,5 @@
 
 void TitleScreenScene::display()
 {
-	this->graphical->render();
+	this->graphical->update();
 }

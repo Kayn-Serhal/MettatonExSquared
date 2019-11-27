@@ -9,6 +9,7 @@
 #include "Headers\GraphicHandler.h"
 #include "Headers\GameStateHandler.h"
 #include "Headers\GameLoader.h"
+#include "Headers/InputHandler.h"
 
 
 
@@ -29,7 +30,7 @@ bool initAddOns();
 
 bool initialLoad();
 
-void gamePlayLoop(SDL_Event event, GamePlayState state);
+void gamePlayLoop();
 
 void refreshScreen();
 
@@ -110,22 +111,20 @@ bool initAddOns()
 
 bool initialLoad()
 {
-	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
-	//LoadSomeShit
 	GameStateHandler::currentGamePlayState = GamePlayState::MOCKTITLE;
+	GameLoader::loadScene(GamePlayState::MOCKTITLE);
 	return true;
 }
 
-void gamePlayLoop(SDL_Event e,GamePlayState state)
+void gamePlayLoop()
 {
-	GameLoader::loadScene(state);
+	GraphicHandler::update();
 
 }
 
 void refreshScreen()
 {
 	SDL_RenderPresent(GraphicHandler::gameRenderer);
-
 }
 
 void close()
@@ -145,8 +144,9 @@ int main(int argc, char* args[])
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT)
 				quit = true;
-			gamePlayLoop(e, lastState);
+			InputHandler::handleEvent(e);
 		}
+		gamePlayLoop();
 		refreshScreen();
 
 	}

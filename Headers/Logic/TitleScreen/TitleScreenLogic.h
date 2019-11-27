@@ -1,5 +1,11 @@
 #pragma once
 #include "../../Logic/Logic.h"
+#include "../../Graph/TitleScreen/TitleScreenGraph.h"
 class TitleScreenLogic : public Logic{
+
+public:
+	TitleScreenLogic(Graph* g) : Logic(g) {};
+
+	void handleEvent(SDL_Event e);
 
 };

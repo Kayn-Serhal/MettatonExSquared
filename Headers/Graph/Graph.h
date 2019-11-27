@@ -5,12 +5,12 @@ class Graph
 
 public:
 	Graph(SDL_Renderer* renderer);
-	virtual void render();
+	virtual void update() = 0;
 
 protected : 
 	SDL_Renderer* renderer;
 
 private :
 
-	virtual void load();
+	virtual void load()= 0;
 };
