@@ -13,12 +13,11 @@ void GameLoader::loadScene(GamePlayState state)
 
 	TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(GraphicHandler::gameRenderer);
 	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
-	
 	//Temporary, just for testing purposes
 	InputHandler::setCurrentLogic(titleScreenLogicalManager);
 	GraphicHandler::setCurrentGraph(titleScreenGraphicalManager);
 
-	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, new TitleScreenLogic(titleScreenGraphicalManager));
+	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
 	sceneToDisplay->display();
 
 }
