@@ -12,6 +12,8 @@ public:
 
 	bool loadFromFile(std::string path, SDL_Renderer* renderer);
 
+	bool loadFromFile(std::string path, SDL_Renderer* renderer, int r, int g, int b);
+
 	void free();
 
 

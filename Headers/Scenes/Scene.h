@@ -4,7 +4,7 @@
 
 class Scene {
 public:
-	virtual void display() = 0;
+	virtual void update() = 0;
 	Scene(Graph* g, Logic* l);
 	Logic* logical;
 protected:

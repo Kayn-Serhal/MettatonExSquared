@@ -6,8 +6,5 @@ Scene::Scene(Graph* g, Logic* l) {
 	this->logical = l;
 }
 
-void Scene::display()
-{
-}
 
 

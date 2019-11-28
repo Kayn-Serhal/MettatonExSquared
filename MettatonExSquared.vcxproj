@@ -129,9 +129,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
     <ClCompile Include="Source\InputHandler.cpp" />
-    <ClCompile Include="Headers\Logic\TitleScreen\TitleScreenLogic.cpp" />
+    <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp" />
+    <ClCompile Include="Source\Logic\TitleScreen\TitleScreenLogic.cpp" />
     <ClCompile Include="Source\Logic\Logic.cpp" />
+    <ClCompile Include="Source\Scenes\Overworld\OverWorldScene.cpp" />
     <ClCompile Include="Source\Scenes\TitleScreen\TitleScreenScene.cpp" />
     <ClCompile Include="Source\GameLoader.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,10 +149,13 @@
     <ClInclude Include="Headers\GameStateHandler.h" />
     <ClInclude Include="Headers\GraphicHandler.h" />
     <ClInclude Include="Headers\Graph\Graph.h" />
+    <ClInclude Include="Headers\Graph\Overworld\OverworldGraph.h" />
     <ClInclude Include="Headers\Graph\TitleScreen\TitleScreenGraph.h" />
     <ClInclude Include="Headers\InputHandler.h" />
     <ClInclude Include="Headers\Logic\Logic.h" />
+    <ClInclude Include="Headers\Logic\Overworld\OverWorldLogic.h" />
     <ClInclude Include="Headers\Logic\TitleScreen\TitleScreenLogic.h" />
+    <ClInclude Include="Headers\Scenes\Overworld\OverWorldScene..h" />
     <ClInclude Include="Headers\Scenes\Scene.h" />
     <ClInclude Include="Headers\Scenes\TitleScreen\TitleScreenScene.h" />
     <ClCompile Include="Source\Components\MetTexture.cpp" />

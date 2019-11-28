@@ -1,6 +1,6 @@
 #include "../../../Headers/Scenes/TitleScreen/TitleScreenScene.h"
 
-void TitleScreenScene::display()
+void TitleScreenScene::update()
 {
 	this->graphical->update();
 }

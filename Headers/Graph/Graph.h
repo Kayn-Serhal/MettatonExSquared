@@ -9,8 +9,8 @@ public:
 
 protected : 
 	SDL_Renderer* renderer;
+	virtual void load() = 0;
 
-private :
 
-	virtual void load()= 0;
+
 };

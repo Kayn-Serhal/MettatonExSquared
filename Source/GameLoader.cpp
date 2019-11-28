@@ -7,17 +7,32 @@
 #include "../Headers/Graph/Graph.h"
 #include "../Headers/Scenes/Scene.h"
 #include "../Headers/InputHandler.h"
+#include "../Headers/Scenes/Overworld/OverWorldScene..h"
+#include "../Headers/Logic/Overworld/OverWorldLogic.h"
+#include "../Headers/Graph/Overworld/OverworldGraph.h"
 
 void GameLoader::loadScene(GamePlayState state)
 {
 
-	TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(GraphicHandler::gameRenderer);
+	/*TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(GraphicHandler::gameRenderer);
 	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
 	//Temporary, just for testing purposes
 	InputHandler::setCurrentLogic(titleScreenLogicalManager);
 	GraphicHandler::setCurrentGraph(titleScreenGraphicalManager);
 
 	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
-	sceneToDisplay->display();
+	sceneToDisplay->update();*/
+
+	OverworldGraph* overworldGraphicalManager = new OverworldGraph(GraphicHandler::gameRenderer);
+	OverWorldLogic* overworldLogicManager = new OverWorldLogic(overworldGraphicalManager);
+
+	InputHandler::setCurrentLogic(overworldLogicManager);
+	GraphicHandler::setCurrentGraph(overworldGraphicalManager);
+
+	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManager, overworldLogicManager);
+	//sceneToDisplay->update();
+
+
+
 
 }

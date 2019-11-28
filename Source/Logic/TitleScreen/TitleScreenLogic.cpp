@@ -1,4 +1,4 @@
-#include "TitleScreenLogic.h"
+#include "../../../Headers/Logic/TitleScreen/TitleScreenLogic.h"
 
 void TitleScreenLogic::handleEvent(SDL_Event e)
 {
