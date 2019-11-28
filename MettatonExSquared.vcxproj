@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Components\PlayerMetSpriteSheet.cpp" />
     <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
     <ClCompile Include="Source\InputHandler.cpp" />
     <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp" />
@@ -145,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Components\MetTexture.h" />
+    <ClInclude Include="Headers\Components\MetSpriteSheet.h" />
+    <ClInclude Include="Headers\Components\Player.h" />
+    <ClInclude Include="Headers\Components\SpriteSheet\PlayerMetSpriteSheet.h" />
     <ClInclude Include="Headers\GameLoader.h" />
     <ClInclude Include="Headers\GameStateHandler.h" />
     <ClInclude Include="Headers\GraphicHandler.h" />
