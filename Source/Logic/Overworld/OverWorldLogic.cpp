@@ -13,7 +13,7 @@ void OverWorldLogic::handleEvent(SDL_Event e)
 			break;
 
 		case SDLK_DOWN:
-			((OverworldGraph*)this->graph)->y--;
+			((OverworldGraph*)this->graph)->y++;
 			break;
 
 		case SDLK_LEFT:

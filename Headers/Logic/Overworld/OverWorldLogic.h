@@ -6,4 +6,6 @@ public:
 	OverWorldLogic(Graph* g) : Logic(g) {};
 
 	void handleEvent(SDL_Event e);
+
+	Player* player;
 };

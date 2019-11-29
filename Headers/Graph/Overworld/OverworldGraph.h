@@ -1,6 +1,7 @@
 #pragma once
 #include "../Graph.h"
 #include "../../Components/MetTexture.h"
+#include "../../Components/Player.h"
 
 class OverworldGraph : public Graph
 {
@@ -16,11 +17,13 @@ public:
 
 	void load();
 
+	Player* player;
 
 
 private:
 
 	MetTexture backGroundTexture;
 	MetTexture spriteTexture;
+
 
 };

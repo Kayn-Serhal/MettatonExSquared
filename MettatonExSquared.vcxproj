@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Components\Player.cpp" />
     <ClCompile Include="Source\Components\PlayerMetSpriteSheet.cpp" />
     <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
     <ClCompile Include="Source\InputHandler.cpp" />

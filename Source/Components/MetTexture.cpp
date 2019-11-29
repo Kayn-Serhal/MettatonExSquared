@@ -111,6 +111,7 @@ void MetTexture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* renderer)
 	}
 
 	//Render to screen
+	
 	SDL_RenderCopy(renderer, mTexture, clip, &renderQuad);
 }
 

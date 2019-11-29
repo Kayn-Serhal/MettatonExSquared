@@ -4,9 +4,10 @@
 class PlayerMetSpriteSheet : public MetSpriteSheet
 {
 public : 
+	PlayerMetSpriteSheet();
 	void loadTexture();
 	void cutTexture();
-	MetTexture spriteForIndex();
-
+	SDL_Rect* spriteForIndex(int index);
+	MetTexture* spriteSheetTexture;
 
 };

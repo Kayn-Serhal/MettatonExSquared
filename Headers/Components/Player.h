@@ -1,5 +1,6 @@
 #pragma once
 #include "MetSpriteSheet.h"
+#include "../../Headers/Components/SpriteSheet/PlayerMetSpriteSheet.h"
 
 class Player {
 
@@ -11,10 +12,13 @@ public :
 
 	Player(int x, int y);
 
+	MetTexture* currentSpriteSheetTexture();
+
+	SDL_Rect* methodeTest(int i);
 protected : 
 
 	int x;
 	int y;
 
-	MetSpriteSheet* spriteSheet;
+	PlayerMetSpriteSheet* spriteSheet;
 };

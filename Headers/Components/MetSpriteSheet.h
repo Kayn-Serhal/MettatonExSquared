@@ -6,11 +6,11 @@ class MetSpriteSheet {
 public:
 	virtual void loadTexture() = 0;
 	virtual void cutTexture() = 0;
-	virtual MetTexture spriteForIndex(int index) = 0;
-
+	virtual SDL_Rect* spriteForIndex(int index) = 0;
+	MetTexture* spriteSheetTexture;
 
 protected:
 
-	MetTexture spriteSheetTexture;
-	std::vector<SDL_Rect>spriteFrames;
+	
+	std::vector<SDL_Rect*>spriteFrames;
 };
