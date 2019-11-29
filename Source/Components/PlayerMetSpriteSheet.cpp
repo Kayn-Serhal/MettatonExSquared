@@ -9,7 +9,7 @@ PlayerMetSpriteSheet::PlayerMetSpriteSheet()
 
 void PlayerMetSpriteSheet::loadTexture()
 {
-	spriteSheetTexture->loadFromFile("Kris.png", GraphicHandler::gameRenderer);
+	spriteSheetTexture->loadFromFile("Kris.png", GraphicHandler::gameRenderer, 0xFF, 0xFF, 0xFF);
 	this->cutTexture();
 }
 
@@ -22,16 +22,15 @@ void PlayerMetSpriteSheet::cutTexture()
 	//Placeholder designed for tests. It needs to change later
 	for (int vertical = 0; vertical < 4; vertical++)
 	{
-
+		for (int horizontal = 0; horizontal < 12; horizontal++)
+		{
 		SDL_Rect* rectSprite = new SDL_Rect();
 
 		rectSprite->h = 50;
-		rectSprite->w = 468 / 12;
-		rectSprite->y = vertical * rectSprite->h;
-		for (int horizontal = 0; horizontal < 12; horizontal++)
-		{
-			rectSprite->x = horizontal * rectSprite->w;
-			this->spriteFrames.push_back(rectSprite);
+		rectSprite->w = 39;
+		rectSprite->y = vertical * rectSprite->h*vertical;
+		rectSprite->x = horizontal * rectSprite->w * horizontal;
+		this->spriteFrames.push_back(rectSprite);
 		}
 	}
 }
