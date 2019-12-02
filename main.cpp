@@ -131,6 +131,16 @@ void close()
 {
 }
 
+void processEvents(Uint32* lastTime)
+{
+	#define TICKSNEXTFRAME (1000/60)
+	if (SDL_GetTicks() - *lastTime > TICKSNEXTFRAME) {
+		const Uint8* k = SDL_GetKeyboardState(NULL);
+		InputHandler::handleEvent(k);
+		*lastTime = SDL_GetTicks();
+	}
+}
+
 int main(int argc, char* args[]) 
 {
 	init();
@@ -138,25 +148,17 @@ int main(int argc, char* args[])
 	bool quit = false;
 	SDL_Event e;
 	GamePlayState lastState = GamePlayState::LOADING; //We do that in order to force an update in the gameplayLoop
-	#define TICKSNEXTFRAME (1000/60)
-	int lastTime = 0;
+
+	Uint32 lastTime = 0;
 	while (!quit)
 	{
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT)
 				quit = true;
 		}
-
-
+		processEvents(&lastTime);
 		gamePlayLoop();
 		refreshScreen();
-		if (SDL_GetTicks() - lastTime > TICKSNEXTFRAME) {
-					const Uint8* k = SDL_GetKeyboardState(NULL);
-					InputHandler::handleEvent(k);
-					lastTime = SDL_GetTicks();
-		}
-
-
 	}
 	close();
 	return 0;
