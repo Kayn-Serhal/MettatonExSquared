@@ -129,6 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Components\MetGraphicalObject.cpp" />
+    <ClCompile Include="Source\Components\MetGraphicalStaticObject.cpp" />
     <ClCompile Include="Source\Components\Player.cpp" />
     <ClCompile Include="Source\Components\PlayerMetSpriteSheet.cpp" />
     <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
@@ -146,6 +148,8 @@
     <ClCompile Include="Source\Graph\TitleScreen\TitleScreenGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Components\MetGraphicalObject.h" />
+    <ClInclude Include="Headers\Components\MetGraphicalStaticObject.h" />
     <ClInclude Include="Headers\Components\MetTexture.h" />
     <ClInclude Include="Headers\Components\MetSpriteSheet.h" />
     <ClInclude Include="Headers\Components\Player.h" />
