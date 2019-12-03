@@ -3,12 +3,12 @@
 #include <SDL.h>
 
 
-class MetTexture
+class MTT_Texture
 {
 public:
-	MetTexture();
+	MTT_Texture();
 
-	~MetTexture();
+	~MTT_Texture();
 
 	bool loadFromFile(std::string path, SDL_Renderer* renderer);
 

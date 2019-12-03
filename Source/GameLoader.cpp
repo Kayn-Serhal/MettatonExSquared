@@ -3,7 +3,6 @@
 #include "../Headers/Graph/TitleScreen/TitleScreenGraph.h"
 #include "../Headers/Logic/TitleScreen/TitleScreenLogic.h"
 #include "../Headers/GraphicHandler.h"
-#include "../Headers/Components/MetTexture.h"
 #include "../Headers/Graph/Graph.h"
 #include "../Headers/Scenes/Scene.h"
 #include "../Headers/InputHandler.h"

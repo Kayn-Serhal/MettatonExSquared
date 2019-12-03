@@ -22,12 +22,7 @@ void OverWorldLogic::handleEvent(SDL_Event e)
 			break;
 
 		case SDLK_RIGHT:*/
-			((OverworldGraph*)this->graph)->x= ((OverworldGraph*)this->graph)->x + Player::VELOCITY;
-			this->player->currentFrame++;
-			if (this->player->currentFrame / 4 >= this->player->FRAMES)
-			{
-				this->player->currentFrame = 0;
-			}
+			//}
 			//break;
 		//}
 	}
@@ -53,11 +48,11 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 			break;
 
 		case SDLK_RIGHT:*/
-		((OverworldGraph*)this->graph)->x = ((OverworldGraph*)this->graph)->x + Player::VELOCITY;
-		this->player->currentFrame++;
-		if (this->player->currentFrame / 4 >= this->player->FRAMES)
+		//((OverworldGraph*)this->graph)->x = ((OverworldGraph*)this->graph)->x + Player::VELOCITY;
+		//this->player->currentFrame++;
+		//if (this->player->currentFrame / 4 >= this->player->FRAMES)
 		{
-			this->player->currentFrame = 0;
+			//this->player->currentFrame = 0;
 		}
 		//break;
 	//}

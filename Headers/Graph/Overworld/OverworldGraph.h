@@ -1,6 +1,6 @@
 #pragma once
 #include "../Graph.h"
-#include "../../Components/MetTexture.h"
+#include "../../Components/MTT_Texture.h"
 #include "../../Components/Player.h"
 
 class OverworldGraph : public Graph
@@ -22,8 +22,7 @@ public:
 
 private:
 
-	MetTexture backGroundTexture;
-	MetTexture spriteTexture;
+	MTT_Texture backGroundTexture;
 
 
 };

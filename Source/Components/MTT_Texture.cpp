@@ -1,21 +1,21 @@
 #pragma once
-#include "../../Headers/Components/MetTexture.h"
+#include "../../Headers/Components/MTT_Texture.h"
 #include <SDL_image.h>
 
 
-MetTexture::MetTexture()
+MTT_Texture::MTT_Texture()
 {
 	mTexture = NULL;
 	mWidth = 0;
 	mHeight = 0;
 }
 
-MetTexture::~MetTexture()
+MTT_Texture::~MTT_Texture()
 {
 	free();
 }
 
-bool MetTexture::loadFromFile(std::string path,SDL_Renderer* renderer)
+bool MTT_Texture::loadFromFile(std::string path,SDL_Renderer* renderer)
 {
 	free();
 
@@ -49,7 +49,7 @@ bool MetTexture::loadFromFile(std::string path,SDL_Renderer* renderer)
 	return mTexture != NULL;
 }
 
-bool MetTexture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, int g, int b)
+bool MTT_Texture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, int g, int b)
 {
 	free();
 
@@ -85,7 +85,7 @@ bool MetTexture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, i
 	return mTexture != NULL;
 }
 
-void MetTexture::free()
+void MTT_Texture::free()
 {
 	//Free texture if it exists
 	if (mTexture != NULL)
@@ -98,7 +98,7 @@ void MetTexture::free()
 }
 
 
-void MetTexture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* renderer)
+void MTT_Texture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* renderer)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
@@ -115,22 +115,22 @@ void MetTexture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* renderer)
 	SDL_RenderCopy(renderer, mTexture, clip, &renderQuad);
 }
 
-int MetTexture::getWidth()
+int MTT_Texture::getWidth()
 {
 	return mWidth;
 }
 
-int MetTexture::getHeight()
+int MTT_Texture::getHeight()
 {
 	return mHeight;
 }
 
-void MetTexture::setBlendMode(SDL_BlendMode blending)
+void MTT_Texture::setBlendMode(SDL_BlendMode blending)
 {
 	SDL_SetTextureAlphaMod(mTexture, blending);
 }
 
-SDL_Texture* MetTexture::getSDLTexture()
+SDL_Texture* MTT_Texture::getSDLTexture()
 {
 	return mTexture;
 }

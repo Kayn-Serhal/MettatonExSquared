@@ -129,10 +129,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Components\MetGraphicalObject.cpp" />
-    <ClCompile Include="Source\Components\MetGraphicalStaticObject.cpp" />
+    <ClCompile Include="Source\Components\MTT_GraphicalObject.cpp" />
+    <ClCompile Include="Source\Components\MTT_GraphicalStaticObject.cpp" />
     <ClCompile Include="Source\Components\Player.cpp" />
-    <ClCompile Include="Source\Components\PlayerMetSpriteSheet.cpp" />
     <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
     <ClCompile Include="Source\InputHandler.cpp" />
     <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp" />
@@ -148,12 +147,12 @@
     <ClCompile Include="Source\Graph\TitleScreen\TitleScreenGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Components\MetGraphicalObject.h" />
-    <ClInclude Include="Headers\Components\MetGraphicalStaticObject.h" />
-    <ClInclude Include="Headers\Components\MetTexture.h" />
-    <ClInclude Include="Headers\Components\MetSpriteSheet.h" />
+    <ClInclude Include="Headers\Components\MTT_GraphicalAnimatedObject.h" />
+    <ClInclude Include="Headers\Components\MTT_GraphicalObject.h" />
+    <ClInclude Include="Headers\Components\MTT_GraphicalStaticObject.h" />
+    <ClInclude Include="Headers\Components\MTT_Texture.h" />
+    <ClInclude Include="Headers\Components\MTT_SpriteSheet.h" />
     <ClInclude Include="Headers\Components\Player.h" />
-    <ClInclude Include="Headers\Components\SpriteSheet\PlayerMetSpriteSheet.h" />
     <ClInclude Include="Headers\GameLoader.h" />
     <ClInclude Include="Headers\GameStateHandler.h" />
     <ClInclude Include="Headers\GraphicHandler.h" />
@@ -167,7 +166,7 @@
     <ClInclude Include="Headers\Scenes\Overworld\OverWorldScene..h" />
     <ClInclude Include="Headers\Scenes\Scene.h" />
     <ClInclude Include="Headers\Scenes\TitleScreen\TitleScreenScene.h" />
-    <ClCompile Include="Source\Components\MetTexture.cpp" />
+    <ClCompile Include="Source\Components\MTT_Texture.cpp" />
     <ClCompile Include="Source\Scenes\Scene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

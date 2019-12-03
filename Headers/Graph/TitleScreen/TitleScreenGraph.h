@@ -1,6 +1,6 @@
 #pragma once
 #include "../Graph.h"
-#include "../../Components/MetTexture.h"
+#include "../../Components/MTT_Texture.h"
 
 class TitleScreenGraph : public Graph
 {
@@ -19,6 +19,6 @@ public:
 
 private:
 
-	MetTexture titleScreenTexture;
+	MTT_Texture titleScreenTexture;
 
 };

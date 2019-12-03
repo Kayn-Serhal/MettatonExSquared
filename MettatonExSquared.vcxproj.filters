@@ -54,9 +54,6 @@
     <ClCompile Include="Source\Scenes\TitleScreen\TitleScreenScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\MetTexture.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scenes\Scene.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -78,17 +75,17 @@
     <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\PlayerMetSpriteSheet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Components\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\MetGraphicalObject.cpp">
+    <ClCompile Include="Source\Components\MTT_GraphicalObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\MetGraphicalStaticObject.cpp">
+    <ClCompile Include="Source\Components\MTT_GraphicalStaticObject.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\MTT_Texture.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +116,6 @@
     <ClInclude Include="Headers\Graph\TitleScreen\TitleScreenGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MetTexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Logic\Logic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -134,19 +128,22 @@
     <ClInclude Include="Headers\Logic\Overworld\OverWorldLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MetSpriteSheet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Components\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\SpriteSheet\PlayerMetSpriteSheet.h">
+    <ClInclude Include="Headers\Components\MTT_GraphicalObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MetGraphicalObject.h">
+    <ClInclude Include="Headers\Components\MTT_SpriteSheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MetGraphicalStaticObject.h">
+    <ClInclude Include="Headers\Components\MTT_GraphicalStaticObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Components\MTT_GraphicalAnimatedObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Components\MTT_Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
