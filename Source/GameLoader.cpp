@@ -23,11 +23,11 @@ void GameLoader::loadScene(GamePlayState state)
 	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
 	sceneToDisplay->update();*/
 
-	OverworldGraph* overworldGraphicalManager = new OverworldGraph(GraphicHandler::gameRenderer);
+	OverworldGraph* overworldGraphicalManager = new OverworldGraph(Graphics::graphicHandler.gameRenderer);
 	OverWorldLogic* overworldLogicManager = new OverWorldLogic(overworldGraphicalManager);
 
-	InputHandler::setCurrentLogic(overworldLogicManager);
-	GraphicHandler::setCurrentGraph(overworldGraphicalManager);
+	Inputs::inputHandler.setCurrentLogic(overworldLogicManager);
+	Graphics::graphicHandler.setCurrentGraph(overworldGraphicalManager);
 
 	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManager, overworldLogicManager);
 	//sceneToDisplay->update();

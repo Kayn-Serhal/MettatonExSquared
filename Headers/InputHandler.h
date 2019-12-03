@@ -6,14 +6,20 @@ class InputHandler {
 
 
 public:
-	static void handleEvent(SDL_Event e);
-	static void handleEvent(const Uint8* keys);
-	static void setCurrentLogic(Logic* newLogic);
+	 void handleEvent(SDL_Event e);
+	 void handleEvent(const Uint8* keys);
+	 void setCurrentLogic(Logic* newLogic);
 
 private:
-	static Logic* currentLogic;
+	 Logic* currentLogic = NULL;
 
 };
+
+
+namespace Inputs
+{
+	extern InputHandler inputHandler;
+}
 
 
 

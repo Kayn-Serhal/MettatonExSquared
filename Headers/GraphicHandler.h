@@ -1,16 +1,23 @@
 #pragma once
 #include <SDL.h>
 #include "Graph/Graph.h"
+
+
 class GraphicHandler {
 
 public:
-	static SDL_Window* gameWindow;
-	static SDL_Renderer* gameRenderer;
+	SDL_Window* gameWindow = NULL;
+	SDL_Renderer* gameRenderer = NULL;
 
-	static void setCurrentGraph(Graph* newGraph);
-	static void update();
+	void setCurrentGraph(Graph* newGraph);
+	void update();
 
 private:
 
-	static Graph* currentGraph;
+	Graph* currentGraph = NULL;
 };
+
+namespace Graphics {
+
+	extern GraphicHandler graphicHandler;
+}

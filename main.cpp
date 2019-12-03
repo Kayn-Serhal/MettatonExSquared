@@ -67,23 +67,23 @@ bool initWindow()
 		printf("Something went wrong when trying to build the window. %s", SDL_GetError());
 		return false;
 	}
-	GraphicHandler::gameWindow = futureGameWindow;
+	Graphics::graphicHandler.gameWindow = futureGameWindow;
 	return true;
 }
 
 bool initRenderer()
 {
-	if (GraphicHandler::gameWindow == NULL)
+	if (Graphics::graphicHandler.gameWindow == NULL)
 	{
 		printf("Well, currently there isn't any window created, so it might be difficult to set a renderer to it? Dumbass");
 		return false;
 	}
-	SDL_Renderer* futureGameRenderer = SDL_CreateRenderer(GraphicHandler::gameWindow, -1, SDL_RENDERER_ACCELERATED);
+	SDL_Renderer* futureGameRenderer = SDL_CreateRenderer(Graphics::graphicHandler.gameWindow, -1, SDL_RENDERER_ACCELERATED);
 	if (futureGameRenderer == NULL) {
 		printf("Something went wrong when trying to initialize the renderer. %s", SDL_GetError());
 		return false;
 	}
-	GraphicHandler::gameRenderer=futureGameRenderer;
+	Graphics::graphicHandler.gameRenderer = futureGameRenderer;
 	return true;
 
 }
@@ -118,13 +118,13 @@ bool initialLoad()
 
 void gamePlayLoop()
 {
-	GraphicHandler::update();
+	Graphics::graphicHandler.update();
 
 }
 
 void refreshScreen()
 {
-	SDL_RenderPresent(GraphicHandler::gameRenderer);
+	SDL_RenderPresent(Graphics::graphicHandler.gameRenderer);
 }
 
 void close()
@@ -136,7 +136,7 @@ void processEvents(Uint32* lastTime)
 	#define TICKSNEXTFRAME (1000/60)
 	if (SDL_GetTicks() - *lastTime > TICKSNEXTFRAME) {
 		const Uint8* k = SDL_GetKeyboardState(NULL);
-		InputHandler::handleEvent(k);
+		Inputs::inputHandler.handleEvent(k);
 		*lastTime = SDL_GetTicks();
 	}
 }

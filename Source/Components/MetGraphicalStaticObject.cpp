@@ -3,10 +3,10 @@
 
 void MetGraphicalStaticObject::loadSpriteFromFilename(std::string filename)
 {
-	spriteTexture.loadFromFile(filename, GraphicHandler::gameRenderer);
+	spriteTexture.loadFromFile(filename, Graphics::graphicHandler.gameRenderer);
 }
 
 void MetGraphicalStaticObject::render()
 {
-	this->spriteTexture.render(this->x, this->y, NULL, GraphicHandler::gameRenderer);
+	this->spriteTexture.render(this->x, this->y, NULL, Graphics::graphicHandler.gameRenderer);
 }

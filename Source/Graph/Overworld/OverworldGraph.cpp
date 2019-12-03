@@ -3,7 +3,6 @@
 void OverworldGraph::load() {
 	this->backGroundTexture.loadFromFile("bgBide.png", this->renderer);
 	this->spriteTexture.loadFromFile("spriBide.png", this->renderer, 0xFF, 0xFF, 0xFF);
-	
 }
 
 void OverworldGraph::update() {
@@ -12,5 +11,4 @@ void OverworldGraph::update() {
 	MetGraphicalStaticObject ron(120, 120);
 	ron.loadSpriteFromFilename("ble.png");
 	ron.render();
-
 }

@@ -2,17 +2,17 @@
 
 void InputHandler::handleEvent(SDL_Event e)
 {
-	InputHandler::currentLogic->handleEvent(e);
+	Inputs::inputHandler.currentLogic->handleEvent(e);
 }
 
 void InputHandler::handleEvent(const Uint8* keys)
 {
-	InputHandler::currentLogic->handleEvent(keys);
+	Inputs::inputHandler.currentLogic->handleEvent(keys);
 }
 
 void InputHandler::setCurrentLogic(Logic* newLogic)
 {
-	InputHandler::currentLogic = newLogic;
+	Inputs::inputHandler.currentLogic = newLogic;
 }
 
-Logic* InputHandler::currentLogic = 0;
+InputHandler Inputs::inputHandler;
