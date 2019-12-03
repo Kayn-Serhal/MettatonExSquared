@@ -8,7 +8,4 @@ void OverworldGraph::load() {
 void OverworldGraph::update() {
 	this->backGroundTexture.render(0, 0, NULL, this->renderer);
 	this->player->currentSpriteSheetTexture()->render(x, y, this->player->methodeTest(this->player->currentFrame/4), this->renderer);
-	MetGraphicalStaticObject ron(120, 120);
-	ron.loadSpriteFromFilename("ble.png");
-	ron.render();
 }
