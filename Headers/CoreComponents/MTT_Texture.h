@@ -22,15 +22,10 @@ public:
 	int getWidth();
 	int getHeight();
 
-	void setBlendMode(SDL_BlendMode blending);
-
-	SDL_Texture* getSDLTexture();
 
 private:
-	//The actual hardware texture
-	SDL_Texture* mTexture;
+	SDL_Texture* hardwareTexture;
 
-	//Image dimensions
-	int mWidth;
-	int mHeight;
+	int width;
+	int height;
 };

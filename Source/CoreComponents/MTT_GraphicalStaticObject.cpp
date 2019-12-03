@@ -1,4 +1,4 @@
-#include "../../Headers/Components/MTT_GraphicalStaticObject.h"
+#include "../../Headers/CoreComponents/MTT_GraphicalStaticObject.h"
 #include "../../Headers/GraphicHandler.h"
 
 void MTT_GraphicalStaticObject::loadSpriteFromFilename(std::string filename)

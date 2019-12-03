@@ -1,7 +1,7 @@
 #pragma once
 #include "../Graph.h"
-#include "../../Components/MTT_Texture.h"
-#include "../../Components/Player.h"
+#include "../../CoreComponents/MTT_Texture.h"
+#include "../../GameComponents/Player/Player.h"
 
 class OverworldGraph : public Graph
 {

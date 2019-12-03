@@ -1,13 +1,13 @@
 #pragma once
-#include "../../Headers/Components/MTT_Texture.h"
+#include "../../Headers/CoreComponents/MTT_Texture.h"
 #include <SDL_image.h>
 
 
 MTT_Texture::MTT_Texture()
 {
-	mTexture = NULL;
-	mWidth = 0;
-	mHeight = 0;
+	hardwareTexture = NULL;
+	width = 0;
+	height = 0;
 }
 
 MTT_Texture::~MTT_Texture()
@@ -21,7 +21,6 @@ bool MTT_Texture::loadFromFile(std::string path,SDL_Renderer* renderer)
 
 	SDL_Texture* newTexture = NULL;
 
-	//Load image at specified path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == NULL)
 	{
@@ -29,8 +28,6 @@ bool MTT_Texture::loadFromFile(std::string path,SDL_Renderer* renderer)
 	}
 	else
 	{
-
-		//Create texture from surface pixels
 		newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
 		if (newTexture == NULL)
 		{
@@ -38,15 +35,14 @@ bool MTT_Texture::loadFromFile(std::string path,SDL_Renderer* renderer)
 		}
 		else
 		{
-			mWidth = loadedSurface->w;
-			mHeight = loadedSurface->h;
+			width = loadedSurface->w;
+			height = loadedSurface->h;
 		}
 		SDL_FreeSurface(loadedSurface);
 	}
 
-	//Return success
-	mTexture = newTexture;
-	return mTexture != NULL;
+	hardwareTexture = newTexture;
+	return hardwareTexture != NULL;
 }
 
 bool MTT_Texture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, int g, int b)
@@ -55,7 +51,6 @@ bool MTT_Texture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, 
 
 	SDL_Texture* newTexture = NULL;
 
-	//Load image at specified path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == NULL)
 	{
@@ -63,10 +58,9 @@ bool MTT_Texture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, 
 	}
 	else
 	{
-		//Color key image
+		//Transparency policy
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, r, g, b));
 
-		//Create texture from surface pixels
 		newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
 		if (newTexture == NULL)
 		{
@@ -74,63 +68,47 @@ bool MTT_Texture::loadFromFile(std::string path, SDL_Renderer* renderer, int r, 
 		}
 		else
 		{
-			mWidth = loadedSurface->w;
-			mHeight = loadedSurface->h;
+			width = loadedSurface->w;
+			height = loadedSurface->h;
 		}
 		SDL_FreeSurface(loadedSurface);
 	}
 
-	//Return success
-	mTexture = newTexture;
-	return mTexture != NULL;
+	hardwareTexture = newTexture;
+	return hardwareTexture != NULL;
 }
 
 void MTT_Texture::free()
 {
-	//Free texture if it exists
-	if (mTexture != NULL)
+	if (hardwareTexture != NULL)
 	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = NULL;
-		mWidth = 0;
-		mHeight = 0;
+		SDL_DestroyTexture(hardwareTexture);
+		hardwareTexture = NULL;
+		width = 0;
+		height = 0;
 	}
 }
 
 
 void MTT_Texture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* renderer)
 {
-	//Set rendering space and render to screen
-	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
+	SDL_Rect renderQuad = { x, y, width, height };
 
-	//Set clip rendering dimensions
 	if (clip != NULL)
 	{
 		renderQuad.w = clip->w;
 		renderQuad.h = clip->h;
 	}
-
-	//Render to screen
 	
-	SDL_RenderCopy(renderer, mTexture, clip, &renderQuad);
+	SDL_RenderCopy(renderer, hardwareTexture, clip, &renderQuad);
 }
 
 int MTT_Texture::getWidth()
 {
-	return mWidth;
+	return width;
 }
 
 int MTT_Texture::getHeight()
 {
-	return mHeight;
-}
-
-void MTT_Texture::setBlendMode(SDL_BlendMode blending)
-{
-	SDL_SetTextureAlphaMod(mTexture, blending);
-}
-
-SDL_Texture* MTT_Texture::getSDLTexture()
-{
-	return mTexture;
+	return height;
 }

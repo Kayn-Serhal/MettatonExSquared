@@ -1,5 +1,5 @@
 #include "../../../Headers/Graph/Overworld/OverworldGraph.h"
-#include "../../../Headers/Components/MTT_GraphicalStaticObject.h"
+#include "../../../Headers/CoreComponents/MTT_GraphicalStaticObject.h"
 void OverworldGraph::load() {
 	this->backGroundTexture.loadFromFile("bgBide.png", this->renderer);
 }

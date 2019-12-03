@@ -75,17 +75,17 @@
     <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Player.cpp">
+    <ClCompile Include="Source\CoreComponents\MTT_GraphicalObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\MTT_GraphicalObject.cpp">
+    <ClCompile Include="Source\CoreComponents\MTT_GraphicalStaticObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\MTT_GraphicalStaticObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Components\MTT_Texture.cpp">
+    <ClCompile Include="Source\CoreComponents\MTT_Texture.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameComponents\Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,22 +128,22 @@
     <ClInclude Include="Headers\Logic\Overworld\OverWorldLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\Player.h">
+    <ClInclude Include="Headers\CoreComponents\MTT_GraphicalAnimatedObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MTT_GraphicalObject.h">
+    <ClInclude Include="Headers\CoreComponents\MTT_GraphicalObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MTT_SpriteSheet.h">
+    <ClInclude Include="Headers\CoreComponents\MTT_GraphicalStaticObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MTT_GraphicalStaticObject.h">
+    <ClInclude Include="Headers\CoreComponents\MTT_SpriteSheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MTT_GraphicalAnimatedObject.h">
+    <ClInclude Include="Headers\CoreComponents\MTT_Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Components\MTT_Texture.h">
+    <ClInclude Include="Headers\GameComponents\Player\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

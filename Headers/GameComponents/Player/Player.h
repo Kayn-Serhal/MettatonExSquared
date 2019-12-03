@@ -1,5 +1,4 @@
 #pragma once
-#include "MTT_SpriteSheet.h"
 
 class Player {
 
@@ -12,8 +11,13 @@ public :
 
 	Player(int x, int y);
 
+	void moveUp();
 
+	void moveDown();
 
+	void moveLeft();
+
+	void moveRight();
 
 protected : 
 

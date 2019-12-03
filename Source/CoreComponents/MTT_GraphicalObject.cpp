@@ -1,4 +1,4 @@
-#include "../../Headers/Components/MTT_GraphicalObject.h"
+#include "../../Headers/CoreComponents/MTT_GraphicalObject.h"
 
 MTTGraphicalObject::MTTGraphicalObject() {
 	this->x = 0;

@@ -1,6 +1,6 @@
 #pragma once
 #include "../Graph.h"
-#include "../../Components/MTT_Texture.h"
+#include "../../CoreComponents/MTT_Texture.h"
 
 class TitleScreenGraph : public Graph
 {
