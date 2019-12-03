@@ -17,10 +17,19 @@ public:
 	int* y = NULL;
 
 	Animations::Player_Anims currentAnimation = Animations::Player_Anims::IDLE;
+	int currentAnimationFrame = 0;
+	int speedAnimation = 1; 
 
+	int walkingLeftFrames[1] = {};
+	int walkingRightFrames[1] = {};
+	int walkingUpFrames[1] = {};
+	int walkingDownFrames[1] = {};
+	int idleFrames[1] = {};
 
 	void loadSpriteFromFilename(std::string filename);
 	void render();
+
+
 
 protected:
 	MTT_SpriteSheet* spriteSheetTexture = NULL;
