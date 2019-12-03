@@ -84,7 +84,13 @@
     <ClCompile Include="Source\CoreComponents\MTT_Texture.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameComponents\Player.cpp">
+    <ClCompile Include="Source\CoreComponents\MTT_SpriteSheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameComponents\Player\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameComponents\Player\PlayerGAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -144,6 +150,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameComponents\Player\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameComponents\Player\PlayerGAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

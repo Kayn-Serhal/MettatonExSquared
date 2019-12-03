@@ -2,13 +2,17 @@
 #include "MTT_Texture.h"
 #include <string>
 
-class MTTGraphicalObject {
+namespace Animations {
+	enum class Ron{WALK};
+}
+
+class MTT_GraphicalObject {
 
 public:
 
-	MTTGraphicalObject();
-	MTTGraphicalObject(int x, int y);
-	MTTGraphicalObject(int* x, int* y);
+	MTT_GraphicalObject();
+	MTT_GraphicalObject(int x, int y);
+	MTT_GraphicalObject(int* x, int* y);
 	
 	int* x = NULL;
 	int* y = NULL;

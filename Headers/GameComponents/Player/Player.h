@@ -1,4 +1,5 @@
 #pragma once
+#include "PlayerGAO.h"
 
 class Player {
 
@@ -18,6 +19,9 @@ public :
 	void moveLeft();
 
 	void moveRight();
+
+	PlayerGAO playerGraphic;
+
 
 protected : 
 

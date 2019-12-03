@@ -1,12 +1,12 @@
 #pragma once
 #include "MTT_GraphicalObject.h"
 
-class MTT_GraphicalStaticObject: public MTTGraphicalObject {
+class MTT_GraphicalStaticObject: public MTT_GraphicalObject {
 public:
 
-	MTT_GraphicalStaticObject() :MTTGraphicalObject() {};
-	MTT_GraphicalStaticObject(int x, int y) :MTTGraphicalObject(x, y) {  };
-	MTT_GraphicalStaticObject(int* x, int* y) : MTTGraphicalObject(x, y) {};
+	MTT_GraphicalStaticObject() :MTT_GraphicalObject() {};
+	MTT_GraphicalStaticObject(int x, int y) :MTT_GraphicalObject(x, y) {  };
+	MTT_GraphicalStaticObject(int* x, int* y) : MTT_GraphicalObject(x, y) {};
 
 	int* x = NULL;
 	int* y = NULL;
