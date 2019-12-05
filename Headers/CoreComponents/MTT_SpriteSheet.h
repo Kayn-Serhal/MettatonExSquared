@@ -1,21 +1,20 @@
 #pragma once
 #include "MTT_Texture.h"
+#include "../GraphicHandler.h"
 #include <vector>
 class MTT_SpriteSheet {
 
 public:
-	virtual void loadTexture() = 0;
+	void loadTexture(std::string filename);
 	virtual void cutTexture() = 0;
-	virtual SDL_Rect* spriteForIndex(int index) = 0;
+	SDL_Rect* spriteForIndex(int index);
+	virtual void render(int x, int y, SDL_Rect* spriteArea) = 0;
 
 	int numberOfSprites();
 
 
 protected:
 	std::vector<SDL_Rect*>spriteFrames;
-
-private:
-
 	MTT_Texture* spriteSheetTexture;
 
 };

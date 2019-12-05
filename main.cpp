@@ -56,6 +56,8 @@ bool init()
 			initAddOns();
 		}
 	}
+
+	return true;
 }
 
 bool initWindow()

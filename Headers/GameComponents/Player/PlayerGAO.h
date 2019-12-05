@@ -1,5 +1,6 @@
 #pragma once
 #include "../../CoreComponents/MTT_GraphicalAnimatedObject.h"
+#include "Player_SpriteSheet.h"
 
 namespace Animations {
 	enum class Player_Anims { WALKING_LEFT, WALKING_RIGHT, WALKING_UP, WALKING_DOWN, IDLE };
@@ -8,33 +9,36 @@ namespace Animations {
 
 class PlayerGAO : public MTT_GraphicalAnimatedObject{
 public:
-	PlayerGAO() : MTT_GraphicalAnimatedObject() {};
-	PlayerGAO(int x, int y) : MTT_GraphicalAnimatedObject(x, y) {};
-	PlayerGAO(int* x, int* y) : MTT_GraphicalAnimatedObject(x, y) {};
+	PlayerGAO() : MTT_GraphicalAnimatedObject() { this->playerSpriteSheet = new Player_SpriteSheet(); };
+	PlayerGAO(int x, int y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); };
+	PlayerGAO(int* x, int* y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); };
 
 
 	int* x = NULL;
 	int* y = NULL;
 
 	Animations::Player_Anims currentAnimation = Animations::Player_Anims::IDLE;
+
 	int currentAnimationFrame = 0;
 	int speedAnimation = 1; 
 
-	int walkingLeftFrames[1] = {};
-	int walkingRightFrames[1] = {};
-	int walkingUpFrames[1] = {};
-	int walkingDownFrames[1] = {};
-	int idleFrames[1] = {};
+	SDL_Rect* walkingLeftFrames[12] = {};
+	SDL_Rect* walkingRightFrames[12] = {};
+	SDL_Rect* walkingUpFrames[12] = {};
+	SDL_Rect* walkingDownFrames[12] = {};
+	SDL_Rect* idleFrames[1] = {};
 
-	void loadSpriteFromFilename(std::string filename);
+	void loadSpriteSheetFromFilename(std::string filename);
+	void fillFramesArrays();
 	void render();
 
 
 
 protected:
-	MTT_SpriteSheet* spriteSheetTexture = NULL;
+	Player_SpriteSheet* playerSpriteSheet = NULL;
 	std::vector<SDL_Rect> spritesArea;
 
-	void cutTexture();
+private:
+	SDL_Rect* spriteAreaToDisplay();
 
 };

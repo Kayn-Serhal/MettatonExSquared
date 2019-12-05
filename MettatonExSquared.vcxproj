@@ -134,6 +134,7 @@
     <ClCompile Include="Source\CoreComponents\MTT_GraphicalStaticObject.cpp" />
     <ClCompile Include="Source\GameComponents\Player\Player.cpp" />
     <ClCompile Include="Source\GameComponents\Player\PlayerGAO.cpp" />
+    <ClCompile Include="Source\GameComponents\Player\Player_SpriteSheet.cpp" />
     <ClCompile Include="Source\Graph\Overworld\OverworldGraph.cpp" />
     <ClCompile Include="Source\InputHandler.cpp" />
     <ClCompile Include="Source\Logic\Overworld\OverWorldLogic.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Headers\CoreComponents\MTT_SpriteSheet.h" />
     <ClInclude Include="Headers\GameComponents\Player\Player.h" />
     <ClInclude Include="Headers\GameComponents\Player\PlayerGAO.h" />
+    <ClInclude Include="Headers\GameComponents\Player\Player_SpriteSheet.h" />
     <ClInclude Include="Headers\GameLoader.h" />
     <ClInclude Include="Headers\GameStateHandler.h" />
     <ClInclude Include="Headers\GraphicHandler.h" />

@@ -5,6 +5,10 @@ Player::Player()
 {
 	this->x = 0;
 	this->y = 0;
+	this->playerGraphic.loadSpriteSheetFromFilename("Susie.png");
+	this->playerGraphic.x = &x;
+	this->playerGraphic.y = &y;
+
 }
 
 Player::Player(int x, int y)

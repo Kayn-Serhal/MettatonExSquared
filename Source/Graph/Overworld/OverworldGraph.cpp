@@ -6,5 +6,5 @@ void OverworldGraph::load() {
 
 void OverworldGraph::update() {
 	this->backGroundTexture.render(0, 0, NULL, this->renderer);
-	//this->player->currentSpriteSheetTexture()->render(x, y, this->player->methodeTest(this->player->currentFrame/4), this->renderer);
+	this->player->playerGraphic.render();
 }
