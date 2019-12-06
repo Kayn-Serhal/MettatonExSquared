@@ -1,8 +1,10 @@
 # MettatonExSquared
+
 It'll probably be a mettaton fan game
 
 
-MettatonSquared v0.0.1
+# MettatonSquared v0.0.1
+
 The goal? Try to make a prototype of a brand new fighting system for RPGs!
 
 For that, i will first try to remade the Undertale combat system using SDL.
