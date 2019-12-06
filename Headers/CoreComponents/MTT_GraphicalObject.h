@@ -13,8 +13,6 @@ public:
 	
 	int* x = NULL;
 	int* y = NULL;
-
-	virtual void loadSpriteSheetFromFilename(std::string filename) = 0;
 	virtual void render() = 0;
 
 

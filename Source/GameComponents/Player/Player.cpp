@@ -3,9 +3,8 @@
 
 Player::Player()
 {
-	this->x = 0;
-	this->y = 0;
-	this->playerGraphic.loadSpriteSheetFromFilename("Susie.png");
+	this->x = 200;
+	this->y = 200;
 	this->playerGraphic.x = &x;
 	this->playerGraphic.y = &y;
 

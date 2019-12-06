@@ -2,7 +2,6 @@
 
 void MTT_SpriteSheet::loadTexture(std::string filename)
 {
-	this->spriteSheetTexture = new MTT_Texture();
 	spriteSheetTexture->loadFromFile(filename,Graphics::graphicHandler.gameRenderer);
 }
 

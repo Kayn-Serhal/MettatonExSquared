@@ -22,9 +22,6 @@ public :
 
 	PlayerGAO playerGraphic;
 
-
-protected : 
-
 	int x;
 	int y;
 

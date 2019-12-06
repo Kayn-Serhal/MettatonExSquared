@@ -1,11 +1,6 @@
 #include "../../../Headers/GameComponents/Player/PlayerGAO.h"
 
 
-void PlayerGAO::loadSpriteSheetFromFilename(std::string filename)
-{
-	this->playerSpriteSheet->loadTexture(filename);
-
-}
 
 void PlayerGAO::fillFramesArrays()
 {
@@ -23,7 +18,7 @@ void PlayerGAO::render()
 {
 	this->playerSpriteSheet->render(*x, *y, spriteAreaToDisplay());
 	this->currentAnimationFrame++;
-	if (this->currentAnimationFrame > 11)
+	if (this->currentAnimationFrame /200 > 11)
 		this->currentAnimationFrame = 0;
 }
 
@@ -32,16 +27,16 @@ SDL_Rect* PlayerGAO::spriteAreaToDisplay()
 	switch (currentAnimation)
 	{
 	case Animations::Player_Anims::WALKING_DOWN:
-		return walkingDownFrames[currentAnimationFrame/speedAnimation];
+		return walkingDownFrames[currentAnimationFrame/200];
 
 	case Animations::Player_Anims::WALKING_LEFT:
-		return walkingLeftFrames[currentAnimationFrame/speedAnimation];
+		return walkingLeftFrames[currentAnimationFrame/200];
 
 	case Animations::Player_Anims::WALKING_RIGHT:
-		return walkingRightFrames[currentAnimationFrame/speedAnimation];
+		return walkingRightFrames[currentAnimationFrame/200];
 
 	case Animations::Player_Anims::WALKING_UP:
-		return walkingUpFrames[currentAnimationFrame/speedAnimation];
+		return walkingUpFrames[currentAnimationFrame/200];
 
 	default:
 		return idleFrames[0];
