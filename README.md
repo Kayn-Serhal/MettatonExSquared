@@ -1,7 +1,3 @@
-# MettatonExSquared
-
-It'll probably be a mettaton fan game
-
 
 # MettatonSquared v0.0.1
 
