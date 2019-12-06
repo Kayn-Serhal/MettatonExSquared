@@ -26,10 +26,10 @@ void Player_SpriteSheet::cutTexture()
 		for (horizontal = 0; horizontal < 12; horizontal++)
 		{
 			SDL_Rect* spriteArea = new SDL_Rect();
-			spriteArea->h = 60;
-			spriteArea->w = 50;
-			spriteArea->x = horizontal * 50;
-			spriteArea->y = vertical * 60;
+			spriteArea->h = 51;
+			spriteArea->w = 35;
+			spriteArea->x = horizontal * 35;
+			spriteArea->y = vertical * 51;
 			this->spriteFrames.push_back(spriteArea);
 		}
 	}
