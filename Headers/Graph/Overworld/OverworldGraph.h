@@ -10,18 +10,22 @@ public:
 		this->load();
 	}
 
-	int x = 200; //Temp
-	int y = 200; //temp
+	const int LEVELWIDTH = 2000;
+	const int LEVELHEIGHT = 1500;
 
 	void update();
 
 	void load();
+
+	
 
 	Player* player;
 
 
 private:
 
+	void checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass();
+	void checkIfCameraIsTryingToGoOutOfBounds();
 	MTT_Texture backGroundTexture;
 
 

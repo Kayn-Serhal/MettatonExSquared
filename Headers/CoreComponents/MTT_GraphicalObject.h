@@ -1,6 +1,7 @@
 #pragma once
 #include "MTT_Texture.h"
 #include <string>
+#include "../Graph/Camera.h"
 
 
 class MTT_GraphicalObject {
@@ -13,7 +14,6 @@ public:
 	
 	int* x = NULL;
 	int* y = NULL;
-	virtual void render() = 0;
-
+	virtual void render(Camera cam) = 0;
 
 };

@@ -14,7 +14,7 @@ public:
 	int* x = NULL;
 	int* y = NULL;
 
-	virtual void render() = 0;
+	virtual void render(Camera cam) = 0;
 
 protected : 
 	

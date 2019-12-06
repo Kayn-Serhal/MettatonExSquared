@@ -5,8 +5,7 @@ class Player {
 
 public :
 
-	static const int VELOCITY = 1;
-	static const int FRAMES = 4;
+	const int VELOCITY = 2;
 	
 	Player();
 
@@ -19,6 +18,8 @@ public :
 	void moveLeft();
 
 	void moveRight();
+
+
 
 	PlayerGAO playerGraphic;
 

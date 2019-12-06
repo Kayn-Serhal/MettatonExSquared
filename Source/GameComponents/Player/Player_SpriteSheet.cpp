@@ -35,9 +35,10 @@ void Player_SpriteSheet::cutTexture()
 	}
 }
 
-void Player_SpriteSheet::render(int x, int y, SDL_Rect* spriteArea)
+void Player_SpriteSheet::render(int x, int y, SDL_Rect* spriteArea, Camera cam)
 {
-	this->spriteSheetTexture->render(x, y, spriteArea, Graphics::graphicHandler.gameRenderer);
+	//Let's deal with the offset
+	this->spriteSheetTexture->render(x - cam.x, y-cam.y, spriteArea, Graphics::graphicHandler.gameRenderer);
 }
 
 

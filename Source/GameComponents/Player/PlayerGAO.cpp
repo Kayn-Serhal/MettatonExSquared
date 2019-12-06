@@ -2,6 +2,16 @@
 
 
 
+int PlayerGAO::getSpriteWidth()
+{
+	return spriteAreaToDisplay()->w;
+}
+
+int PlayerGAO::getSpriteHeight()
+{
+	return spriteAreaToDisplay()->h;
+}
+
 void PlayerGAO::fillFramesArrays()
 {
 	for (int i = 0; i < 12; i++)
@@ -14,9 +24,9 @@ void PlayerGAO::fillFramesArrays()
 	this->idleFrames[0] = this->playerSpriteSheet->spriteForIndex(16);
 }
 
-void PlayerGAO::render()
+void PlayerGAO::render(Camera cam)
 {
-	this->playerSpriteSheet->render(*x, *y, spriteAreaToDisplay());
+	this->playerSpriteSheet->render(*x, *y, spriteAreaToDisplay(),cam);
 	this->currentAnimationFrame++;
 	if (this->currentAnimationFrame /refreshRate > 11)
 		this->currentAnimationFrame = 0;

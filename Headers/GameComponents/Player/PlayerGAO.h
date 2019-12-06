@@ -1,6 +1,7 @@
 #pragma once
 #include "../../CoreComponents/MTT_GraphicalAnimatedObject.h"
 #include "Player_SpriteSheet.h"
+#include "../../Graph/Camera.h"
 
 namespace Animations {
 	enum class Player_Anims { WALKING_LEFT, WALKING_RIGHT, WALKING_UP, WALKING_DOWN, IDLE };
@@ -27,8 +28,11 @@ public:
 	SDL_Rect* walkingDownFrames[12] = {};
 	SDL_Rect* idleFrames[1] = {};
 
+	int getSpriteWidth();
+	int getSpriteHeight();
+
 	void fillFramesArrays();
-	void render();
+	void render(Camera cam);
 
 protected:
 	Player_SpriteSheet* playerSpriteSheet = NULL;

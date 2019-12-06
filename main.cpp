@@ -15,8 +15,8 @@
 
 using namespace std;
 
-const int SWIDTH = 1280;
-const int SHEIGHT = 1024;
+const int SWIDTH = 640;
+const int SHEIGHT = 480;
 
 const int SCREEN_FPS = 60;
 

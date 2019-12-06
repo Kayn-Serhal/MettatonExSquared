@@ -8,7 +8,7 @@ public:
 	void loadTexture(std::string filename);
 	virtual void cutTexture() = 0;
 	SDL_Rect* spriteForIndex(int index);
-	virtual void render(int x, int y, SDL_Rect* spriteArea) = 0;
+	virtual void render(int x, int y, SDL_Rect* spriteArea,Camera cam) = 0;
 
 	int numberOfSprites();
 
