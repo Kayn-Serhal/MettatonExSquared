@@ -18,7 +18,7 @@ void PlayerGAO::render()
 {
 	this->playerSpriteSheet->render(*x, *y, spriteAreaToDisplay());
 	this->currentAnimationFrame++;
-	if (this->currentAnimationFrame /200 > 11)
+	if (this->currentAnimationFrame /refreshRate > 11)
 		this->currentAnimationFrame = 0;
 }
 
@@ -27,16 +27,16 @@ SDL_Rect* PlayerGAO::spriteAreaToDisplay()
 	switch (currentAnimation)
 	{
 	case Animations::Player_Anims::WALKING_DOWN:
-		return walkingDownFrames[currentAnimationFrame/200];
+		return walkingDownFrames[currentAnimationFrame/refreshRate];
 
 	case Animations::Player_Anims::WALKING_LEFT:
-		return walkingLeftFrames[currentAnimationFrame/200];
+		return walkingLeftFrames[currentAnimationFrame/refreshRate];
 
 	case Animations::Player_Anims::WALKING_RIGHT:
-		return walkingRightFrames[currentAnimationFrame/200];
+		return walkingRightFrames[currentAnimationFrame/refreshRate];
 
 	case Animations::Player_Anims::WALKING_UP:
-		return walkingUpFrames[currentAnimationFrame/200];
+		return walkingUpFrames[currentAnimationFrame/refreshRate];
 
 	default:
 		return idleFrames[0];
