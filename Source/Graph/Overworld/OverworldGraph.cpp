@@ -5,6 +5,7 @@ void OverworldGraph::load() {
 }
 
 void OverworldGraph::update() {
+	SDL_RenderClear(Graphics::graphicHandler.gameRenderer);
 	this->backGroundTexture.render(0, 0, NULL, this->renderer);
 	this->player->playerGraphic.render();
 }
