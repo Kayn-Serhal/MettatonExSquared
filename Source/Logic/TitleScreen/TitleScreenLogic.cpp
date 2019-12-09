@@ -1,10 +1,11 @@
 #include "../../../Headers/Logic/TitleScreen/TitleScreenLogic.h"
+#include "../../../Headers/GameLoader.h"
 
-void TitleScreenLogic::handleEvent(SDL_Event e)
+void TitleScreenLogic::handleEvent(const Uint8* keys)
 {
-	if (e.type == SDL_KEYDOWN)
+
+	if (keys[SDL_SCANCODE_RETURN])
 	{
-		((TitleScreenGraph*)graph)->fuckShitUp();
-		printf("Mon event fonctionne un peu");
+		GameLoader::loadScene(GamePlayState::OVERWORLD);
 	}
 }

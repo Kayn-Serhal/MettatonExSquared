@@ -6,6 +6,5 @@ class TitleScreenLogic : public Logic{
 public:
 	TitleScreenLogic(Graph* g) : Logic(g) {};
 
-	void handleEvent(SDL_Event e);
-
+	void handleEvent(const Uint8* keys);
 };

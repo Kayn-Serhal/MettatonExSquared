@@ -1,14 +1,6 @@
 #include "../../../Headers/Graph/TitleScreen/TitleScreenGraph.h"
 
 
-
-
-void TitleScreenGraph::fuckShitUp()
-{
-	this->titleScreenTexture.free();
-	SDL_RenderClear(this->renderer);
-}
-
 void TitleScreenGraph::load() {
 	this->titleScreenTexture.loadFromFile("title.png",this->renderer);
 }
