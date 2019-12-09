@@ -13,14 +13,26 @@
 void GameLoader::loadScene(GamePlayState state)
 {
 
-	/*TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(GraphicHandler::gameRenderer);
-	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
-	//Temporary, just for testing purposes
-	InputHandler::setCurrentLogic(titleScreenLogicalManager);
-	GraphicHandler::setCurrentGraph(titleScreenGraphicalManager);
+	unloadAndFreePreviousScene();
+	switch (state)
+	{
+	case GamePlayState::FIGHT:break; //not implemented yet
+	case GamePlayState::LOADING: break; //Same
+	case GamePlayState::MOCKTITLE: loadTitleScreen(); break;
+	case GamePlayState::OVERWORLD: loadOverworld(); break;
+	}
+}
 
-	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
-	sceneToDisplay->update();*/
+void GameLoader::loadTitleScreen()
+{
+	TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(Graphics::graphicHandler.gameRenderer);
+	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
+	Inputs::inputHandler.setCurrentLogic(titleScreenLogicalManager);
+	Graphics::graphicHandler.setCurrentGraph(titleScreenGraphicalManager);
+}
+
+void GameLoader::loadOverworld()
+{
 
 	OverworldGraph* overworldGraphicalManager = new OverworldGraph(Graphics::graphicHandler.gameRenderer);
 	OverWorldLogic* overworldLogicManager = new OverWorldLogic(overworldGraphicalManager);
@@ -29,9 +41,13 @@ void GameLoader::loadScene(GamePlayState state)
 	Graphics::graphicHandler.setCurrentGraph(overworldGraphicalManager);
 
 	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManager, overworldLogicManager);
-	//sceneToDisplay->update();
+}
 
 
-
+//This is pretty important and will be used in order to prevent memory leaks so be careful with that
+void GameLoader::unloadAndFreePreviousScene()
+{
 
 }
+
+
