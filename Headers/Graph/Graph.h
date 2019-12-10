@@ -7,6 +7,7 @@ class Graph
 public:
 	Graph(SDL_Renderer* renderer);
 	virtual void update() = 0;
+	virtual void free() =0;
 
 protected : 
 	SDL_Renderer* renderer;

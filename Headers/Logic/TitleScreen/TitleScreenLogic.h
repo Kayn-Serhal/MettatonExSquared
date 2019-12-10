@@ -7,4 +7,7 @@ public:
 	TitleScreenLogic(Graph* g) : Logic(g) {};
 
 	void handleEvent(const Uint8* keys);
+
+	void free();
+
 };

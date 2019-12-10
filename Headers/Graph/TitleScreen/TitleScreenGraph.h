@@ -9,11 +9,11 @@ public:
 		this->load();
 	}
 
-	void fuckShitUp();
-
 	void load();
 
 	void update();
+
+	void free();
 
 
 

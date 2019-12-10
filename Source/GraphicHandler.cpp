@@ -12,6 +12,12 @@ void GraphicHandler::update()
 	GraphicHandler::currentGraph->update();
 }
 
+void GraphicHandler::free()
+{
+	this->currentGraph->free();
+}
+
+
 GraphicHandler Graphics::graphicHandler;
 
 

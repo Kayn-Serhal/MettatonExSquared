@@ -1,6 +1,10 @@
 #include "../../../Headers/Scenes/TitleScreen/TitleScreenScene.h"
 
-void TitleScreenScene::update()
+
+void TitleScreenScene::free()
 {
-	this->graphical->update();
+	this->graphical->free();
+	this->logical->free();
+	delete this->graphical;
+	delete this->logical;
 }

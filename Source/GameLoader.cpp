@@ -4,16 +4,18 @@
 #include "../Headers/Logic/TitleScreen/TitleScreenLogic.h"
 #include "../Headers/GraphicHandler.h"
 #include "../Headers/Graph/Graph.h"
-#include "../Headers/Scenes/Scene.h"
 #include "../Headers/InputHandler.h"
 #include "../Headers/Scenes/Overworld/OverWorldScene..h"
 #include "../Headers/Logic/Overworld/OverWorldLogic.h"
 #include "../Headers/Graph/Overworld/OverworldGraph.h"
 
+
+
 void GameLoader::loadScene(GamePlayState state)
 {
+	if(GameLoader::currentScene !=NULL)
+		unloadAndFreePreviousScene();
 
-	unloadAndFreePreviousScene();
 	switch (state)
 	{
 	case GamePlayState::FIGHT:break; //not implemented yet
@@ -29,6 +31,11 @@ void GameLoader::loadTitleScreen()
 	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
 	Inputs::inputHandler.setCurrentLogic(titleScreenLogicalManager);
 	Graphics::graphicHandler.setCurrentGraph(titleScreenGraphicalManager);
+
+	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
+	GameLoader::currentScene = sceneToDisplay;
+	//No need to bother with a scene here
+
 }
 
 void GameLoader::loadOverworld()
@@ -41,13 +48,19 @@ void GameLoader::loadOverworld()
 	Graphics::graphicHandler.setCurrentGraph(overworldGraphicalManager);
 
 	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManager, overworldLogicManager);
+	GameLoader::currentScene = sceneToDisplay;
 }
 
 
 //This is pretty important and will be used in order to prevent memory leaks so be careful with that
 void GameLoader::unloadAndFreePreviousScene()
 {
-
+	GameLoader::currentScene->free();
+	delete GameLoader::currentScene;
 }
+
+Scene* GameLoader::currentScene;
+
+
 
 

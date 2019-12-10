@@ -9,3 +9,8 @@ void TitleScreenLogic::handleEvent(const Uint8* keys)
 		GameLoader::loadScene(GamePlayState::OVERWORLD);
 	}
 }
+
+void TitleScreenLogic::free()
+{
+	//Nothing to free.
+}

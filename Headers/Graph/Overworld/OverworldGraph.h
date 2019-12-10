@@ -17,6 +17,8 @@ public:
 
 	void load();
 
+	void free();
+
 	
 
 	Player* player;
