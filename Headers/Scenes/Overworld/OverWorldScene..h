@@ -11,10 +11,18 @@ public:
 		((OverWorldLogic*) this->logical)->player = this->player;
 	};
 
+	OverWorldScene(Graph* g, Logic* l, bool cat): Scene(g,l) {
+		this->player = new Player();
+		((OverworldGraph*)this->graphical)->player = this->player;
+		((OverWorldLogic*)this->logical)->player = this->player;
+	};
+
 	void update();
 
 	void free();
 
 	Player* player;
+
+
 
 };

@@ -12,11 +12,9 @@ class PlayerGAO : public MTT_GraphicalAnimatedObject{
 public:
 	PlayerGAO() : MTT_GraphicalAnimatedObject() { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays(); };
 	PlayerGAO(int x, int y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays(); };
-	PlayerGAO(int* x, int* y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays(); };
 
 
-	int* x = NULL;
-	int* y = NULL;
+
 
 	Animations::Player_Anims currentAnimation = Animations::Player_Anims::WALKING_RIGHT;// Change the value of this and the animation will update during rendering. Life is great
 

@@ -6,13 +6,9 @@ public:
 
 	MTT_GraphicalStaticObject() :MTT_GraphicalObject() {};
 	MTT_GraphicalStaticObject(int x, int y) :MTT_GraphicalObject(x, y) {  };
-	MTT_GraphicalStaticObject(int* x, int* y) : MTT_GraphicalObject(x, y) {};
-
-	int* x = NULL;
-	int* y = NULL;
 
 	void loadSpriteFromFilename(std::string filename);
-	void render();
+	void render(Camera cam);
 
 
 protected:

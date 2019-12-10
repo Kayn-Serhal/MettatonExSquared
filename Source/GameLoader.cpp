@@ -48,6 +48,11 @@ void GameLoader::loadOverworld()
 
 	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManager, overworldLogicManager);
 	GameLoader::currentScene = sceneToDisplay;
+
+	Cat* cat = new Cat(40,40);
+	cat->loadSpriteFromFilename("Cat.png");
+	overworldGraphicalManager->aRandomCat = cat;
+	; 
 }
 
 

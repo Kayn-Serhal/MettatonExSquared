@@ -55,4 +55,6 @@ void OverworldGraph::update() {
 	this->checkIfCameraIsTryingToGoOutOfBounds();
 	this->backGroundTexture.render(0, 0, ((SDL_Rect*)&camera), this->renderer);
 	this->player->playerGraphic.render(camera);
+	if(aRandomCat)
+	this->aRandomCat->render(camera);
 }

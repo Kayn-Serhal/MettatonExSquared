@@ -2,6 +2,7 @@
 #include "../Graph.h"
 #include "../../CoreComponents/MTT_Texture.h"
 #include "../../GameComponents/Player/Player.h"
+#include "../../GameComponents/Cat.h"
 
 class OverworldGraph : public Graph
 {
@@ -22,6 +23,11 @@ public:
 	
 
 	Player* player;
+	Cat* aRandomCat = 0;
+
+	
+
+	
 
 
 private:
