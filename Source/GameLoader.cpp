@@ -34,7 +34,6 @@ void GameLoader::loadTitleScreen()
 
 	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
 	GameLoader::currentScene = sceneToDisplay;
-	//No need to bother with a scene here
 
 }
 
@@ -60,7 +59,3 @@ void GameLoader::unloadAndFreePreviousScene()
 }
 
 Scene* GameLoader::currentScene;
-
-
-
-
