@@ -8,6 +8,12 @@ void OverworldGraph::load() {
 
 }
 
+void OverworldGraph::free()
+{
+	this->backGroundTexture.free();
+	
+}
+
 void OverworldGraph::checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass()
 {
 	if (this->player->x<0) 

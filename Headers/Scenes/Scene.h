@@ -4,9 +4,9 @@
 
 class Scene {
 public:
-	virtual void update() = 0;
 	Scene(Graph* g, Logic* l);
 	Logic* logical;
+	virtual void free() = 0;
 protected:
 	Graph* graphical;
 

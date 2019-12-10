@@ -6,7 +6,6 @@ class InputHandler {
 
 
 public:
-	 void handleEvent(SDL_Event e);
 	 void handleEvent(const Uint8* keys);
 	 void setCurrentLogic(Logic* newLogic);
 

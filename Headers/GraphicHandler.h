@@ -11,6 +11,7 @@ public:
 
 	void setCurrentGraph(Graph* newGraph);
 	void update();
+	void free();
 
 private:
 

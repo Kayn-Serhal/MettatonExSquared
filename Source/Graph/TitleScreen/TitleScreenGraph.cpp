@@ -9,3 +9,8 @@ void TitleScreenGraph::load() {
 void TitleScreenGraph::update() {
 	this->titleScreenTexture.render(0, 0, NULL, this->renderer);
 }
+
+void TitleScreenGraph::free()
+{
+	this->titleScreenTexture.free();
+}
