@@ -154,6 +154,7 @@
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalAnimatedObject.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalObject.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalStaticObject.h" />
+    <ClInclude Include="Headers\CoreComponents\MTT_LoadingArea.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_Texture.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_SpriteSheet.h" />
     <ClInclude Include="Headers\GameComponents\Cat.h" />

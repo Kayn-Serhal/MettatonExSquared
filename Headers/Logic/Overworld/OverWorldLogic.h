@@ -1,6 +1,8 @@
 #pragma once
 #include "../../Logic/Logic.h"
 #include "../../Graph/Overworld/OverworldGraph.h"
+
+
 class OverWorldLogic : public Logic {
 public:
 
@@ -14,8 +16,14 @@ public:
 	SDL_Rect loadingArea{ 0,0,50,50 };
 	Player* player = NULL;
 
+	
+
 private:
 	bool checkCollisionsBetweenTwoRectangles(SDL_Rect rect1, SDL_Rect rect2);
+	void cancelLastMove();
+
+	int lastXCoorOfPlayer = 0;
+	int lastYCoorOfPlayer = 0;
 
 
 };

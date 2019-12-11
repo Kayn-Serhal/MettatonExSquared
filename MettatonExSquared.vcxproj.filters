@@ -170,5 +170,8 @@
     <ClInclude Include="Headers\GameComponents\Cat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\CoreComponents\MTT_LoadingArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include "../../CoreComponents/MTT_Texture.h"
 #include "../../GameComponents/Player/Player.h"
 #include "../../GameComponents/Cat.h"
+#include <string>
 
 class OverworldGraph : public Graph
 {
@@ -22,6 +23,9 @@ public:
 
 	
 
+
+	
+
 	Player* player;
 	Cat* aRandomCat = 0;
 
@@ -34,6 +38,7 @@ private:
 
 	void checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass();
 	void checkIfCameraIsTryingToGoOutOfBounds();
+	std::string biome; //Yeah, about that. It's not technically a "biome". It's  
 	MTT_Texture backGroundTexture;
 
 

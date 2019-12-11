@@ -6,10 +6,11 @@
 void OverWorldLogic::handleEvent(const Uint8* keys)
 {
 
+	this->lastXCoorOfPlayer = this->player->x;
+	this->lastYCoorOfPlayer = this->player->y;
 
 	if (keys[SDL_SCANCODE_RIGHT])
 	{
-		//((OverworldGraph*)this->graph)->x = ((OverworldGraph*)this->graph)->x + Player::VELOCITY;
 		this->player->moveRight();
 		this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT;
 	}
@@ -38,6 +39,9 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 
 	
 
+	//temp, for testing purposes
+	this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat);
+
 }
 
 void OverWorldLogic::free()
@@ -47,18 +51,19 @@ void OverWorldLogic::free()
 
 void OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
 {
+	if (object) {
+		//This part sucks and need refactoring 
+		SDL_Rect playerRect;
 
-	//This part sucks and need refactoring 
-	SDL_Rect playerRect;
+		playerRect.h = this->player->playerGraphic.getSpriteHeight();
+		playerRect.w = this->player->playerGraphic.getSpriteWidth();
+		playerRect.x = player->x;
+		playerRect.y = player->y;
 
-	playerRect.h = this->player->playerGraphic.getSpriteHeight();
-	playerRect.w = this->player->playerGraphic.getSpriteWidth();
-	playerRect.x = player->x;
-	playerRect.y = player->y;
-
-	if (checkCollisionsBetweenTwoRectangles(playerRect, object->box))
-	{
-		//Do stuff
+		if (checkCollisionsBetweenTwoRectangles(playerRect, object->box))
+		{
+			this->cancelLastMove();
+		}
 	}
 }
 
@@ -117,6 +122,12 @@ bool OverWorldLogic::checkCollisionsBetweenTwoRectangles(SDL_Rect a, SDL_Rect b)
         return false;
     }
     return true;
+}
+
+void OverWorldLogic::cancelLastMove()
+{
+	this->player->x = this->lastXCoorOfPlayer;
+	this->player->y = this->lastYCoorOfPlayer;
 }
 
 
