@@ -11,8 +11,8 @@ public:
 		this->load();
 	}
 
-	const int LEVELWIDTH = 2000;
-	const int LEVELHEIGHT = 1500;
+	const int LEVELWIDTH = 1000;
+	const int LEVELHEIGHT = 1000;
 
 	void update();
 

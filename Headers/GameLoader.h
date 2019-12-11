@@ -11,4 +11,5 @@ private:
 	static void loadOverworld();
 	static void unloadAndFreePreviousScene();
 	static Scene* currentScene;
+	static bool boolCat;
 };

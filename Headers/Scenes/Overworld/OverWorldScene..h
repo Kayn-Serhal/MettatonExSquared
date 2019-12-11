@@ -2,6 +2,7 @@
 #include "../Scene.h"
 #include "../../Graph/Overworld/OverworldGraph.h"
 #include "../../Logic/Overworld/OverWorldLogic.h"
+#include <vector>
 class OverWorldScene : public Scene
 {
 public:

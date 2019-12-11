@@ -14,6 +14,8 @@ public:
 	int x;
 	int y;
 
+	SDL_Rect box;
+
 	virtual void render(Camera cam) = 0;
 
 };

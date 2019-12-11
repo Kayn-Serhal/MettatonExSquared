@@ -51,8 +51,9 @@ void GameLoader::loadOverworld()
 
 	Cat* cat = new Cat(40,40);
 	cat->loadSpriteFromFilename("Cat.png");
+	if(boolCat)
 	overworldGraphicalManager->aRandomCat = cat;
-	; 
+	GameLoader::boolCat = !boolCat;
 }
 
 
@@ -64,3 +65,4 @@ void GameLoader::unloadAndFreePreviousScene()
 }
 
 Scene* GameLoader::currentScene;
+bool GameLoader::boolCat = false;

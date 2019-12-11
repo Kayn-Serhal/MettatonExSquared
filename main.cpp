@@ -24,6 +24,7 @@
 //Mettaton EX will be the dummy enemy that i will use for this demo.
 //I mean...
 //You can't have too much Mettaton, and this is going to take a while...
+
 using namespace std;
 
 const int SWIDTH = 640;
