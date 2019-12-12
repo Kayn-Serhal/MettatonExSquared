@@ -34,6 +34,7 @@ void GameLoader::loadTitleScreen()
 
 	TitleScreenScene* sceneToDisplay = new TitleScreenScene(titleScreenGraphicalManager, titleScreenLogicalManager);
 	GameLoader::currentScene = sceneToDisplay;
+	GameStateHandler::currentGamePlayState = GamePlayState::MOCKTITLE;
 
 }
 
@@ -54,12 +55,15 @@ void GameLoader::loadOverworld()
 	if(boolCat)
 	overworldGraphicalManager->aRandomCat = cat;
 	GameLoader::boolCat = !boolCat;
+
+	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
 }
 
 
 //This is pretty important and will be used in order to prevent memory leaks so be careful with that
 void GameLoader::unloadAndFreePreviousScene()
 {
+	GameStateHandler::currentGamePlayState = GamePlayState::LOADING; //If you don't do this, everything will explode if you load a new scene
 	GameLoader::currentScene->free();
 	delete GameLoader::currentScene;
 }
