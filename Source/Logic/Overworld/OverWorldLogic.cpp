@@ -12,7 +12,7 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 	if (keys[SDL_SCANCODE_RIGHT])
 	{
 		this->player->moveRight();
-		this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT;
+		this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT; //putting that in player could be a good idea	
 	}
 
 	else if (keys[SDL_SCANCODE_LEFT])
@@ -35,18 +35,20 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 
 	else this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
 
+
+	this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat); //Do not ever, ever call this function after the check if loading area or everything will burn to ashes.
+																			//Anyway. the fun thing about this function is that it needs to be updated in order to deal with the list of 
+																			//Graphical objects later on.
 	this->checkIfPlayerInLoadingArea();
 
-	
 
-	//temp, for testing purposes
-	this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat);
+	
 
 }
 
 void OverWorldLogic::free()
 {
-	//nothing to free.
+	//nothing to free, yet.
 }
 
 void OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
@@ -129,7 +131,3 @@ void OverWorldLogic::cancelLastMove()
 	this->player->x = this->lastXCoorOfPlayer;
 	this->player->y = this->lastYCoorOfPlayer;
 }
-
-
-
-

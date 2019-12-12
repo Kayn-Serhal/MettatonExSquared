@@ -6,5 +6,15 @@ Scene::Scene(Graph* g, Logic* l) {
 	this->logical = l;
 }
 
+Scene::~Scene()
+{
+	this->logical->free();
+	this->graphical->free();
+	delete this->logical;
+	delete this->graphical;
+	this->logical = NULL;
+	this->graphical = NULL;
+}
+
 
 

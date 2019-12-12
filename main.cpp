@@ -170,10 +170,12 @@ int main(int argc, char* args[])
 			if (e.type == SDL_QUIT)
 				quit = true;
 		}
-		if(GameStateHandler::currentGamePlayState!= GamePlayState::LOADING) //If you don't do this, everything will explode in processEvents
+		if (GameStateHandler::currentGamePlayState != GamePlayState::LOADING) //If you don't do this, everything will explode in processEvents
+		{
 			processEvents(&lastTime);
-		gamePlayLoop();
-		refreshScreen();
+			gamePlayLoop();
+			refreshScreen();
+		}
 	}
 	close();
 	return 0;

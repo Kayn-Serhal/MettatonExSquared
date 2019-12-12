@@ -13,6 +13,7 @@
 
 void GameLoader::loadScene(GamePlayState state)
 {
+	
 	if(GameLoader::currentScene !=NULL)
 		unloadAndFreePreviousScene();
 
@@ -27,6 +28,7 @@ void GameLoader::loadScene(GamePlayState state)
 
 void GameLoader::loadTitleScreen()
 {
+	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
 	TitleScreenGraph* titleScreenGraphicalManager = new TitleScreenGraph(Graphics::graphicHandler.gameRenderer);
 	TitleScreenLogic* titleScreenLogicalManager = new TitleScreenLogic(titleScreenGraphicalManager);
 	Inputs::inputHandler.setCurrentLogic(titleScreenLogicalManager);
@@ -40,7 +42,7 @@ void GameLoader::loadTitleScreen()
 
 void GameLoader::loadOverworld()
 {
-
+	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
 	OverworldGraph* overworldGraphicalManager = new OverworldGraph(Graphics::graphicHandler.gameRenderer);
 	OverWorldLogic* overworldLogicManager = new OverWorldLogic(overworldGraphicalManager);
 
@@ -63,9 +65,10 @@ void GameLoader::loadOverworld()
 //This is pretty important and will be used in order to prevent memory leaks so be careful with that
 void GameLoader::unloadAndFreePreviousScene()
 {
-	GameStateHandler::currentGamePlayState = GamePlayState::LOADING; //If you don't do this, everything will explode if you load a new scene
-	GameLoader::currentScene->free();
+	Inputs::inputHandler.setCurrentLogic(NULL);
+	Graphics::graphicHandler.setCurrentGraph(NULL);
 	delete GameLoader::currentScene;
+	GameLoader::currentScene = NULL;
 }
 
 Scene* GameLoader::currentScene;
