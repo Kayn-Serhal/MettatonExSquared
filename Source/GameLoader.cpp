@@ -40,6 +40,7 @@ void GameLoader::loadTitleScreen()
 
 }
 
+//This method was just here for test purposes and will fly away like the test method it is soon.
 void GameLoader::loadOverworld()
 {
 	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
@@ -59,6 +60,22 @@ void GameLoader::loadOverworld()
 	GameLoader::boolCat = !boolCat;
 
 	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
+}
+
+void GameLoader::loadOverworld(std::string area, int id)
+{
+	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
+	OverworldGraph* overworldGraphicalManagerOfArea = new OverworldGraph(area, id, Graphics::graphicHandler.gameRenderer);
+	OverWorldLogic* overworldLogicManagerOfArea = new OverWorldLogic(overworldGraphicalManagerOfArea);
+	
+	Inputs::inputHandler.setCurrentLogic(overworldLogicManagerOfArea);
+	Graphics::graphicHandler.setCurrentGraph(overworldGraphicalManagerOfArea);
+
+	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManagerOfArea, overworldLogicManagerOfArea);
+	GameLoader::currentScene = sceneToDisplay;
+
+	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
+
 }
 
 
