@@ -22,8 +22,16 @@ void GameLoader::loadScene(GamePlayState state)
 	case GamePlayState::FIGHT:break; //not implemented yet
 	case GamePlayState::LOADING: break; //Same
 	case GamePlayState::MOCKTITLE: loadTitleScreen(); break;
-	case GamePlayState::OVERWORLD: loadOverworld(); break;
+	case GamePlayState::OVERWORLD: loadOverworld("Test","Test1"); break;
 	}
+}
+
+void GameLoader::loadOverworldScene(std::string area, std::string subArea)
+{
+	if (GameLoader::currentScene != NULL)
+		unloadAndFreePreviousScene();
+
+	loadOverworld(area, subArea);
 }
 
 void GameLoader::loadTitleScreen()
@@ -62,10 +70,10 @@ void GameLoader::loadOverworld()
 	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
 }
 
-void GameLoader::loadOverworld(std::string area, int id)
+void GameLoader::loadOverworld(std::string area, std::string subArea)
 {
 	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
-	OverworldGraph* overworldGraphicalManagerOfArea = new OverworldGraph(area, id, Graphics::graphicHandler.gameRenderer);
+	OverworldGraph* overworldGraphicalManagerOfArea = new OverworldGraph(area, subArea, Graphics::graphicHandler.gameRenderer);
 	OverWorldLogic* overworldLogicManagerOfArea = new OverWorldLogic(overworldGraphicalManagerOfArea);
 	
 	Inputs::inputHandler.setCurrentLogic(overworldLogicManagerOfArea);

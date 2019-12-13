@@ -5,7 +5,7 @@ class Player {
 
 public :
 
-	const int VELOCITY = 2;
+	const int VELOCITY = 6; //2 is fine but i'm debugging right now.
 	
 	Player();
 

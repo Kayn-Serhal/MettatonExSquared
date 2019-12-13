@@ -80,10 +80,31 @@ void OverWorldLogic::checkIfPlayerInLoadingArea()
 	playerRect.x = player->x;
 	playerRect.y = player->y;
 
-	if (checkCollisionsBetweenTwoRectangles(playerRect, this->loadingArea))
+	bool hasReachedLoadingZone = false;
+	MTT_LoadingArea loadingArea;
+
+	//STAY VIGILANT:
+	//If you start fucking around and load stuff, it's great ;
+	//It's what a game is supposed to do.
+	//However.
+	//do NOT ever load anything when you're in a loop.
+	//Cuz you know, loading things mean deleting the old thing
+	//And you don't want to keep processing shit in a deleted thing.
+	//Believe me, you don't want this.
+	//That's the reason why we have two local variables before.
+
+
+	for (std::vector<MTT_LoadingArea>::iterator it = ((OverworldGraph*)this->graph)->loadingAreas.begin(); it != ((OverworldGraph*)this->graph)->loadingAreas.end(); it++)
 	{
-		GameLoader::loadScene(GamePlayState::OVERWORLD);
+		if (checkCollisionsBetweenTwoRectangles(playerRect, it->loadingArea))
+		{
+			hasReachedLoadingZone = true;
+			loadingArea.loadingArea = it->loadingArea;
+			loadingArea.region = it->region;
+			loadingArea.sceneName = it->sceneName;
+		}
 	}
+	if (hasReachedLoadingZone)GameLoader::loadOverworldScene(loadingArea.region,loadingArea.sceneName);
 }
 
 //Spoiler : it's not mine

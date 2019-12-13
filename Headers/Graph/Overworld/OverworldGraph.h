@@ -4,13 +4,12 @@
 #include "../../GameComponents/Player/Player.h"
 #include "../../GameComponents/Cat.h"
 #include "../../CoreComponents/MTT_LoadingArea.h"
-#include "../../../rapidjson/rapidjson.h"
 #include "../../../rapidjson/document.h"
-#include "../../../rapidjson/stringbuffer.h"
-#include "../../../rapidjson/prettywriter.h"
+#include  <fstream>
+#include "../../../rapidjson/istreamwrapper.h"
 #include <string>
 
-
+using namespace rapidjson;
 
 class OverworldGraph : public Graph
 {
@@ -26,10 +25,36 @@ public:
 		this->load();
 	}
 
-	OverworldGraph(std::string area, int id, SDL_Renderer* r) : Graph(r) {
+	OverworldGraph(std::string area, std::string subArea, SDL_Renderer* r) : Graph(r) {
 
-		this->id = id;
+		this->subArea = subArea;
 		this->area = area;
+
+		this->pathAssets = LEVEL_FOLDER_ROOT + this->area + "\\" + this->subArea + "\\";
+
+		std::ifstream ifs(this->pathAssets + LOADINGAREAS_FILE);
+		IStreamWrapper isw(ifs);
+		Document d;
+		d.ParseStream(isw);
+		
+		const Value& v = d["loadingAreas"];
+		for (SizeType i = 0; i < v.Size(); i++)
+		{
+			MTT_LoadingArea area;
+			area.loadingArea.h = v[i]["rect"]["h"].GetInt();
+			area.loadingArea.w = v[i]["rect"]["w"].GetInt();
+			area.loadingArea.x = v[i]["rect"]["x"].GetInt();
+			area.loadingArea.y = v[i]["rect"]["y"].GetInt();
+
+			area.region = v[i]["region"].GetString();
+			area.sceneName = v[i]["sceneName"].GetString();
+			this->loadingAreas.push_back(area);
+		}
+		
+
+		this->load();
+
+		
 		//Go on folder
 		//Retrieve data and put it in the class
 		//for now loadingAreas will suffice
@@ -60,7 +85,8 @@ private:
 	void checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass();
 	void checkIfCameraIsTryingToGoOutOfBounds();
 	std::string area;
-	int id=1;
+	std::string subArea;
+	std::string pathAssets;
 
 	MTT_Texture backGroundTexture;
 
