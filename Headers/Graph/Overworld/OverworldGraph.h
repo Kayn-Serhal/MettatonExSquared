@@ -4,6 +4,10 @@
 #include "../../GameComponents/Player/Player.h"
 #include "../../GameComponents/Cat.h"
 #include "../../CoreComponents/MTT_LoadingArea.h"
+#include "../../../rapidjson/rapidjson.h"
+#include "../../../rapidjson/document.h"
+#include "../../../rapidjson/stringbuffer.h"
+#include "../../../rapidjson/prettywriter.h"
 #include <string>
 
 
@@ -15,6 +19,7 @@ public:
 	const std::string LEVEL_FOLDER_ROOT = "OW_area\\";
 	const std::string LOADINGAREAS_FILE = "loadingAreas.json";
 	const std::string ASSETS_DEFINITION_FILE = "areaAssets.json";
+	const std::string BACKGROUND_FILE = "bg.png"; 
 	
 
 	OverworldGraph(SDL_Renderer* r) : Graph(r) {
@@ -45,6 +50,7 @@ public:
 
 	Player* player = 0;
 	Cat* aRandomCat = 0;
+
 
 	std::vector<MTT_LoadingArea> loadingAreas;
 

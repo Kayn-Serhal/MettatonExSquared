@@ -1,0 +1,26 @@
+{
+	"loadingAreas": [{
+
+			"rect": {
+				"x": 990,
+				"y": 400,
+				"h": 200,
+				"w": 10
+			},
+			"region": "Test",
+			"sceneName": "Test4"
+		},
+		{
+			"rect": {
+				"x": 400,
+				"y": 0,
+				"h": 10,
+				"w": 200
+			},
+			"region": "Test",
+			"sceneName": "Test2"
+		}
+	]
+}
+
+
