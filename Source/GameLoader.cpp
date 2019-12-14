@@ -34,6 +34,16 @@ void GameLoader::loadOverworldScene(std::string area, std::string subArea)
 	loadOverworld(area, subArea);
 }
 
+void GameLoader::loadOverworldScene(std::string area, std::string subArea, Player* player)
+{
+
+	if (GameLoader::currentScene != NULL)
+		unloadAndFreePreviousScene();
+
+	loadOverworld(area, subArea, player);
+}
+
+
 void GameLoader::loadTitleScreen()
 {
 	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
@@ -84,6 +94,21 @@ void GameLoader::loadOverworld(std::string area, std::string subArea)
 
 	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
 
+}
+
+void GameLoader::loadOverworld(std::string area, std::string subArea, Player* player)
+{
+	GameStateHandler::currentGamePlayState = GamePlayState::LOADING;
+	OverworldGraph* overworldGraphicalManagerOfArea = new OverworldGraph(area, subArea, Graphics::graphicHandler.gameRenderer);
+	OverWorldLogic* overworldLogicManagerOfArea = new OverWorldLogic(overworldGraphicalManagerOfArea);
+
+	Inputs::inputHandler.setCurrentLogic(overworldLogicManagerOfArea);
+	Graphics::graphicHandler.setCurrentGraph(overworldGraphicalManagerOfArea);
+
+	OverWorldScene* sceneToDisplay = new OverWorldScene(overworldGraphicalManagerOfArea, overworldLogicManagerOfArea, player);
+	GameLoader::currentScene = sceneToDisplay;
+
+	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;
 }
 
 

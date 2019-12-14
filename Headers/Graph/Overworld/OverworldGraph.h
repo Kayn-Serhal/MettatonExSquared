@@ -41,13 +41,15 @@ public:
 		for (SizeType i = 0; i < v.Size(); i++)
 		{
 			MTT_LoadingArea area;
-			area.loadingArea.h = v[i]["rect"]["h"].GetInt();
-			area.loadingArea.w = v[i]["rect"]["w"].GetInt();
-			area.loadingArea.x = v[i]["rect"]["x"].GetInt();
-			area.loadingArea.y = v[i]["rect"]["y"].GetInt();
+			area.loadingAreaCoordinates.h = v[i]["loadingAreaCoordinates"]["h"].GetInt();
+			area.loadingAreaCoordinates.w = v[i]["loadingAreaCoordinates"]["w"].GetInt();
+			area.loadingAreaCoordinates.x = v[i]["loadingAreaCoordinates"]["x"].GetInt();
+			area.loadingAreaCoordinates.y = v[i]["loadingAreaCoordinates"]["y"].GetInt();
 
-			area.region = v[i]["region"].GetString();
-			area.sceneName = v[i]["sceneName"].GetString();
+			area.zoneOfDestination = v[i]["zoneOfDestination"].GetString();
+			area.subZoneOfDestination = v[i]["subZoneOfDestination"].GetString();
+			area.destinationX = v[i]["destinationX"].GetInt();
+			area.destinationY = v[i]["destinationY"].GetInt();
 			this->loadingAreas.push_back(area);
 		}
 		

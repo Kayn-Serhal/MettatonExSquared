@@ -1,24 +1,28 @@
 {
 	"loadingAreas": [{
 
-			"rect": {
+			"loadingAreaCoordinates": {
 				"x": 990,
 				"y": 400,
 				"h": 200,
 				"w": 10
 			},
-			"region": "Test",
-			"sceneName": "Test2"
+			"zoneOfDestination": "Test",
+			"subZoneOfDestination": "Test2",
+			"destinationX":15,
+			"destinationY":500
 		},
 		{
-			"rect": {
+			"loadingAreaCoordinates": {
 				"x": 400,
 				"y": 990,
 				"h": 10,
 				"w": 200
 			},
-			"region": "Test",
-			"sceneName": "Test4"
+			"zoneOfDestination": "Test",
+			"subZoneOfDestination": "Test4",
+			"destinationX":500,
+			"destinationY":15
 		}
 	]
 }

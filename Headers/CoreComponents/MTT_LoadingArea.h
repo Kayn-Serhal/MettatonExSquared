@@ -6,7 +6,10 @@ class MTT_LoadingArea
 {
 
 public: 
-	SDL_Rect loadingArea;
-	std::string region;
-	std::string sceneName;
+	SDL_Rect loadingAreaCoordinates;
+	std::string zoneOfDestination;
+	std::string subZoneOfDestination;
+
+	int destinationX; //The x value of the player in the new area
+	int destinationY; //The y value of the new area
 };

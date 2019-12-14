@@ -96,15 +96,28 @@ void OverWorldLogic::checkIfPlayerInLoadingArea()
 
 	for (std::vector<MTT_LoadingArea>::iterator it = ((OverworldGraph*)this->graph)->loadingAreas.begin(); it != ((OverworldGraph*)this->graph)->loadingAreas.end(); it++)
 	{
-		if (checkCollisionsBetweenTwoRectangles(playerRect, it->loadingArea))
+		if (checkCollisionsBetweenTwoRectangles(playerRect, it->loadingAreaCoordinates))
 		{
 			hasReachedLoadingZone = true;
-			loadingArea.loadingArea = it->loadingArea;
-			loadingArea.region = it->region;
-			loadingArea.sceneName = it->sceneName;
+			loadingArea.loadingAreaCoordinates = it->loadingAreaCoordinates;
+			loadingArea.zoneOfDestination = it->zoneOfDestination;
+			loadingArea.subZoneOfDestination = it->subZoneOfDestination;
+			loadingArea.destinationX = it->destinationX;
+			loadingArea.destinationY = it->destinationY;
 		}
 	}
-	if (hasReachedLoadingZone)GameLoader::loadOverworldScene(loadingArea.region,loadingArea.sceneName);
+
+	if (hasReachedLoadingZone & !player->loadingZoneLifeInsurance)
+	{
+		player->x = loadingArea.destinationX;
+		player->playerGraphic.x = loadingArea.destinationX;
+		player->y = loadingArea.destinationY;
+		player->playerGraphic.y = loadingArea.destinationY;
+		player->loadingZoneLifeInsurance = true;
+		GameLoader::loadOverworldScene(loadingArea.zoneOfDestination, loadingArea.subZoneOfDestination, player);
+	}
+	else if (!hasReachedLoadingZone && player->loadingZoneLifeInsurance) player->loadingZoneLifeInsurance = false;
+	
 }
 
 //Spoiler : it's not mine
