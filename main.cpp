@@ -16,7 +16,7 @@
 
 
 
-//MettatonSquared v0.0.1
+//MettatonSquared v0.0.2
 //The goal? Try to make a prototype of a brand new fighting system for RPGs!
 //For that, i will first try to remade the undertale combat system using SDL.
 //Then, it will be Deltarune...
