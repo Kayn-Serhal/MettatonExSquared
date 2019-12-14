@@ -1,5 +1,5 @@
 
-# MettatonSquared v0.0.1
+# MettatonSquared v0.0.2
 
 The goal? Try to make a prototype of a brand new fighting system for RPGs!
 
