@@ -10,10 +10,12 @@ public:
 
 	MTT_GraphicalObject();
 	MTT_GraphicalObject(int x, int y);
-	MTT_GraphicalObject(int* x, int* y);
 	
-	int* x = NULL;
-	int* y = NULL;
+	int x;
+	int y;
+
+	SDL_Rect box;
+
 	virtual void render(Camera cam) = 0;
 
 };

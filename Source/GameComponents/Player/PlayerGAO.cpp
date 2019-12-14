@@ -26,7 +26,7 @@ void PlayerGAO::fillFramesArrays()
 
 void PlayerGAO::render(Camera cam)
 {
-	this->playerSpriteSheet->render(*x, *y, spriteAreaToDisplay(),cam);
+	this->playerSpriteSheet->render(x, y, spriteAreaToDisplay(),cam);
 	this->currentAnimationFrame++;
 	if (this->currentAnimationFrame /refreshRate > 11)
 		this->currentAnimationFrame = 0;

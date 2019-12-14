@@ -2,3 +2,4 @@
 Debug/
 *.dll
 MettatonExSquared.vcxproj.user
+enc_temp_folder/

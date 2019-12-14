@@ -9,10 +9,7 @@ public:
 
 	MTT_GraphicalAnimatedObject() : MTT_GraphicalObject() {};
 	MTT_GraphicalAnimatedObject(int x, int y) : MTT_GraphicalObject(x, y) {};
-	MTT_GraphicalAnimatedObject(int* x, int* y) : MTT_GraphicalObject(x, y) { };
 
-	int* x = NULL;
-	int* y = NULL;
 
 	virtual void render(Camera cam) = 0;
 

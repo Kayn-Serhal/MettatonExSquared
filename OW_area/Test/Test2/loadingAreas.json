@@ -1,0 +1,30 @@
+{
+	"loadingAreas": [{
+
+			"loadingAreaCoordinates": {
+				"x": 0,
+				"y": 400,
+				"h": 200,
+				"w": 10
+			},
+			"zoneOfDestination": "Test",
+			"subZoneOfDestination": "Test1",
+			"destinationX":980,
+			"destinationY":500
+			
+		},
+		{
+			"loadingAreaCoordinates": {
+				"x": 400,
+				"y": 990,
+				"h": 10,
+				"w": 200
+			},
+			"zoneOfDestination": "Test",
+			"subZoneOfDestination": "Test3",
+			"destinationX":500,
+			"destinationY":15
+		}
+	]
+}
+

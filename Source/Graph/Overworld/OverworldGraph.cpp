@@ -1,10 +1,12 @@
 #include "../../../Headers/Graph/Overworld/OverworldGraph.h"
 #include "../../../Headers/CoreComponents/MTT_GraphicalStaticObject.h"
+#include <iostream>
 void OverworldGraph::load() {
-	this->backGroundTexture.loadFromFile("bgBide2.png", this->renderer);
+	this->backGroundTexture.loadFromFile(this->pathAssets+"\\"+BACKGROUND_FILE, this->renderer);
 	this->camera.x = this->camera.y = 0;
 	this->camera.h = 480;
 	this->camera.w = 640;
+	std::cout << this->pathAssets + "\\" + BACKGROUND_FILE << std::endl;
 
 }
 
@@ -55,4 +57,6 @@ void OverworldGraph::update() {
 	this->checkIfCameraIsTryingToGoOutOfBounds();
 	this->backGroundTexture.render(0, 0, ((SDL_Rect*)&camera), this->renderer);
 	this->player->playerGraphic.render(camera);
+	if(aRandomCat)
+	this->aRandomCat->render(camera);
 }

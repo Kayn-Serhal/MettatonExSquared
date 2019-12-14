@@ -7,6 +7,7 @@ public:
 	Scene(Graph* g, Logic* l);
 	Logic* logical;
 	virtual void free() = 0;
+	~Scene();
 protected:
 	Graph* graphical;
 
