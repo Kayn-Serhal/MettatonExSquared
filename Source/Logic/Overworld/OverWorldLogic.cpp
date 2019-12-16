@@ -6,8 +6,8 @@
 void OverWorldLogic::handleEvent(const Uint8* keys)
 {
 
-	this->lastXCoorOfPlayer = this->player->x;
-	this->lastYCoorOfPlayer = this->player->y;
+	this->lastXCoorOfPlayer = this->player->getX();
+	this->lastYCoorOfPlayer = this->player->getY();
 
 	if (keys[SDL_SCANCODE_RIGHT])
 	{
@@ -54,15 +54,8 @@ void OverWorldLogic::free()
 void OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
 {
 	if (object) {
-		//This part sucks and need refactoring 
-		SDL_Rect playerRect;
 
-		playerRect.h = this->player->playerGraphic.getSpriteHeight();
-		playerRect.w = this->player->playerGraphic.getSpriteWidth();
-		playerRect.x = player->x;
-		playerRect.y = player->y;
-
-		if (checkCollisionsBetweenTwoRectangles(playerRect, object->box))
+		if (checkCollisionsBetweenTwoRectangles(this->player->getHitbox(), object->hitbox))
 		{
 			this->cancelLastMove();
 		}
@@ -72,13 +65,6 @@ void OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
 void OverWorldLogic::checkIfPlayerInLoadingArea()
 {
 
-	//This part sucks and need refactoring 
-	SDL_Rect playerRect;
-
-	playerRect.h = this->player->playerGraphic.getSpriteHeight();
-	playerRect.w = this->player->playerGraphic.getSpriteWidth();
-	playerRect.x = player->x;
-	playerRect.y = player->y;
 
 	bool hasReachedLoadingZone = false;
 	MTT_LoadingArea loadingArea;
@@ -96,7 +82,7 @@ void OverWorldLogic::checkIfPlayerInLoadingArea()
 
 	for (std::vector<MTT_LoadingArea>::iterator it = ((OverworldGraph*)this->graph)->loadingAreas.begin(); it != ((OverworldGraph*)this->graph)->loadingAreas.end(); it++)
 	{
-		if (checkCollisionsBetweenTwoRectangles(playerRect, it->loadingAreaCoordinates))
+		if (checkCollisionsBetweenTwoRectangles(this->player->getHitbox(), it->loadingAreaCoordinates))
 		{
 			hasReachedLoadingZone = true;
 			loadingArea.loadingAreaCoordinates = it->loadingAreaCoordinates;
@@ -109,10 +95,8 @@ void OverWorldLogic::checkIfPlayerInLoadingArea()
 
 	if (hasReachedLoadingZone & !player->loadingZoneLifeInsurance)
 	{
-		player->x = loadingArea.destinationX;
-		player->playerGraphic.x = loadingArea.destinationX;
-		player->y = loadingArea.destinationY;
-		player->playerGraphic.y = loadingArea.destinationY;
+		player->setX(loadingArea.destinationX);
+		player->setY(loadingArea.destinationY);
 		player->loadingZoneLifeInsurance = true;
 		GameLoader::loadOverworldScene(loadingArea.zoneOfDestination, loadingArea.subZoneOfDestination, player);
 	}
@@ -162,6 +146,6 @@ bool OverWorldLogic::checkCollisionsBetweenTwoRectangles(SDL_Rect a, SDL_Rect b)
 
 void OverWorldLogic::cancelLastMove()
 {
-	this->player->x = this->lastXCoorOfPlayer;
-	this->player->y = this->lastYCoorOfPlayer;
+	this->player->setX(this->lastXCoorOfPlayer);
+	this->player->setY(this->lastYCoorOfPlayer);
 }

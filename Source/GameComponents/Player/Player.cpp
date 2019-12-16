@@ -40,6 +40,31 @@ void Player::moveRight()
 	this->playerGraphic.x = x;
 }
 
+SDL_Rect Player::getHitbox()
+{
+	return this->playerGraphic.hitbox;
+}
+
+int Player::getX()
+{
+	return x;
+}
+
+int Player::getY()
+{
+	return y;
+}
+
+void Player::setX(int newX)
+{
+	this->x = this->playerGraphic.x = newX;
+}
+
+void Player::setY(int newY)
+{
+	this->y = this->playerGraphic.y = newY;
+}
+
 
 
 

@@ -12,6 +12,7 @@ int PlayerGAO::getSpriteHeight()
 	return spriteAreaToDisplay()->h;
 }
 
+
 void PlayerGAO::fillFramesArrays()
 {
 	for (int i = 0; i < 12; i++)
@@ -26,10 +27,12 @@ void PlayerGAO::fillFramesArrays()
 
 void PlayerGAO::render(Camera cam)
 {
+	this->updateHitbox();
 	this->playerSpriteSheet->render(x, y, spriteAreaToDisplay(),cam);
 	this->currentAnimationFrame++;
 	if (this->currentAnimationFrame /refreshRate > 11)
 		this->currentAnimationFrame = 0;
+
 }
 
 SDL_Rect* PlayerGAO::spriteAreaToDisplay()
@@ -51,4 +54,9 @@ SDL_Rect* PlayerGAO::spriteAreaToDisplay()
 	default:
 		return idleFrames[0];
 	}
+}
+
+void PlayerGAO::updateHitbox()
+{
+	this->hitbox = { this->x, this->y, this->getSpriteWidth(), this->getSpriteHeight() };
 }

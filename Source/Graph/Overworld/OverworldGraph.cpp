@@ -18,14 +18,14 @@ void OverworldGraph::free()
 
 void OverworldGraph::checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass()
 {
-	if (this->player->x<0) 
-		this->player->x += this->player->VELOCITY;
-	if (this->player->y<0)
-		this->player->y += this->player->VELOCITY;
-	if (this->player->y + this->player->playerGraphic.getSpriteHeight() > LEVELHEIGHT)
-		this->player->y -= this->player->VELOCITY;
-	if (this->player->x + this->player->playerGraphic.getSpriteWidth() > LEVELWIDTH)
-		this->player->x -= this->player->VELOCITY;
+	if (this->player->getX() <0)
+		this->player->setX(this->player->getX() + this->player->VELOCITY);
+	if (this->player->getY() <0)
+		this->player->setY(this->player->getY() + this->player->VELOCITY);
+	if (this->player->getY() + this->player->playerGraphic.getSpriteHeight() > LEVELHEIGHT)
+		this->player->setY(this->player->getY() - this->player->VELOCITY);
+	if (this->player->getX() + this->player->playerGraphic.getSpriteWidth() > LEVELWIDTH)
+		this->player->setX(this->player->getX()- this->player->VELOCITY);
 }
 
 void OverworldGraph::checkIfCameraIsTryingToGoOutOfBounds()
@@ -51,8 +51,8 @@ void OverworldGraph::checkIfCameraIsTryingToGoOutOfBounds()
 void OverworldGraph::update() {
 	SDL_RenderClear(Graphics::graphicHandler.gameRenderer);
 
-	camera.x = (this->player->x + this->player->playerGraphic.getSpriteWidth() / 2) - 640 / 2;
-	camera.y = (this->player->y + this->player->playerGraphic.getSpriteHeight() / 2) - 480 / 2;
+	camera.x = (this->player->getX() + this->player->playerGraphic.getSpriteWidth() / 2) - 640 / 2;
+	camera.y = (this->player->getY() + this->player->playerGraphic.getSpriteHeight() / 2) - 480 / 2;
 	this->checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass();
 	this->checkIfCameraIsTryingToGoOutOfBounds();
 	this->backGroundTexture.render(0, 0, ((SDL_Rect*)&camera), this->renderer);

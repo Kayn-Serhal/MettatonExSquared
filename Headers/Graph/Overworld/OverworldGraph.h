@@ -56,11 +56,6 @@ public:
 
 		this->load();
 
-		
-		//Go on folder
-		//Retrieve data and put it in the class
-		//for now loadingAreas will suffice
-
 	}
 
 
@@ -91,6 +86,4 @@ private:
 	std::string pathAssets;
 
 	MTT_Texture backGroundTexture;
-
-
 };

@@ -161,7 +161,6 @@ int main(int argc, char* args[])
 	initialLoad();
 	bool quit = false;
 	SDL_Event e;
-	GamePlayState lastState = GamePlayState::LOADING; //We do that in order to force an update in the gameplayLoop
 
 	Uint32 lastTime = 0;
 	while (!quit)

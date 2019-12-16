@@ -11,7 +11,7 @@ namespace Animations {
 class PlayerGAO : public MTT_GraphicalAnimatedObject{
 public:
 	PlayerGAO() : MTT_GraphicalAnimatedObject() { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays(); };
-	PlayerGAO(int x, int y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays(); };
+	PlayerGAO(int x, int y) : MTT_GraphicalAnimatedObject(x, y) { this->playerSpriteSheet = new Player_SpriteSheet(); this->playerSpriteSheet->cutTexture(); this->fillFramesArrays();};
 
 
 
@@ -29,6 +29,9 @@ public:
 	int getSpriteWidth();
 	int getSpriteHeight();
 
+
+
+
 	void fillFramesArrays();
 	void render(Camera cam);
 
@@ -40,5 +43,6 @@ private:
 	SDL_Rect* spriteAreaToDisplay();
 	int currentAnimationFrame = 0;
 	int refreshRate = 200; //The bigger this shit is, the slower the animation will run
+	void updateHitbox();
 
 };

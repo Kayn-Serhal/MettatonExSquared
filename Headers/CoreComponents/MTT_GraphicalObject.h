@@ -14,7 +14,7 @@ public:
 	int x;
 	int y;
 
-	SDL_Rect box;
+	SDL_Rect hitbox = { 0,0,0,0 }; //kind of
 
 	virtual void render(Camera cam) = 0;
 

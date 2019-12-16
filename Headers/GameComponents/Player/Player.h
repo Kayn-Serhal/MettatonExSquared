@@ -19,14 +19,23 @@ public :
 
 	void moveRight();
 
+	SDL_Rect getHitbox();
+
+	int getX();
+	int getY();
+	void setX(int newX);
+	void setY(int newY);
+
 
 
 	PlayerGAO playerGraphic;
 
+	bool loadingZoneLifeInsurance = false; // This boolean is here in order to prevent the player to get stuck if imprecisions in the destinationx or destination y 
+											//Of loading areas made the player spawn in a loadingarea itself.
+
+private:
+
 	int x;
 	int y;
-
-	bool loadingZoneLifeInsurance = false; // This boolean is here in order to prevent the player to get stuck if imprecisions in the destinationx or destination y 
-											 //Of loading areas made the player spawn in a loadingarea itself.
 
 };
