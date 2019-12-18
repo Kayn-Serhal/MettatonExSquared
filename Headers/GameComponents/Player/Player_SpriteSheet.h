@@ -10,8 +10,4 @@ public:
 	void render(int x, int y, SDL_Rect* spriteArea, Camera cam);
 
 
-protected:
-	std::vector<SDL_Rect*>spriteFrames;
-	MTT_Texture* spriteSheetTexture = NULL;
-
 };
