@@ -129,7 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Headers\Scenes\Fight\UndertaleFightScene.cpp" />
+    <ClCompile Include="Source\Graph\Fight\UndertaleFightGraph.cpp" />
+    <ClCompile Include="Source\Scenes\Fight\UndertaleFightScene.cpp" />
     <ClCompile Include="Source\CoreComponents\MTT_SpriteSheet.cpp" />
     <ClCompile Include="Source\CoreComponents\MTT_GraphicalObject.cpp" />
     <ClCompile Include="Source\CoreComponents\MTT_GraphicalStaticObject.cpp" />
@@ -160,6 +161,8 @@
     <ClInclude Include="Headers\CoreComponents\MTT_SpriteSheet.h" />
     <ClInclude Include="Headers\GameComponents\Cat.h" />
     <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\Mettaton.h" />
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\MettatonGAO.h" />
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\Mettaton_SpriteSheet.h" />
     <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\UndertaleEnemy.h" />
     <ClInclude Include="Headers\GameComponents\Player\Player.h" />
     <ClInclude Include="Headers\GameComponents\Player\PlayerGAO.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="Headers\Graph\Overworld\OverworldGraph.h" />
     <ClInclude Include="Headers\Graph\TitleScreen\TitleScreenGraph.h" />
     <ClInclude Include="Headers\InputHandler.h" />
+    <ClInclude Include="Headers\Logic\Fight\UndertaleFightLogic.h" />
     <ClInclude Include="Headers\Logic\Logic.h" />
     <ClInclude Include="Headers\Logic\Overworld\OverWorldLogic.h" />
     <ClInclude Include="Headers\Logic\TitleScreen\TitleScreenLogic.h" />

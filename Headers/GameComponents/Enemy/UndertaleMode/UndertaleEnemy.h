@@ -4,15 +4,15 @@ class UndertaleEnemy {
 
 
 public:
-	UndertaleEnemy();
-	virtual void attack(SDL_Renderer* renderer) = 0;
+	UndertaleEnemy() {};
+	virtual void attack(SDL_Renderer* renderer, int turn) = 0;
 
 
-	MTT_GraphicalAnimatedObject* GAO;
+	MTT_GraphicalAnimatedObject* GAO =NULL;
 
 protected:
 
-	int HP;
-	int maxHP;
+	int HP =0;
+	int maxHP=0;
 
 };

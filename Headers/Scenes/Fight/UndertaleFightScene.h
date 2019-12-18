@@ -15,6 +15,6 @@ public :
 	
 	Player* player = 0;
 
-	UndertaleEnemy* enemy = 0;
+	UndertaleEnemy* enemy = 0; //temporary, for test purposes
 
 };

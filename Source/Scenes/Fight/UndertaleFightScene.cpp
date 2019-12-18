@@ -1,4 +1,4 @@
-#include "UndertaleFightScene.h"
+#include "../../../Headers/Scenes/Fight/UndertaleFightScene.h"
 
 void UndertaleFightScene::update()
 {

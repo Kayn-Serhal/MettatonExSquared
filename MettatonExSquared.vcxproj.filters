@@ -99,7 +99,10 @@
     <ClCompile Include="Source\Graph\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Headers\Scenes\Fight\UndertaleFightScene.cpp">
+    <ClCompile Include="Source\Scenes\Fight\UndertaleFightScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graph\Fight\UndertaleFightGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,6 +189,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\Mettaton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\MettatonGAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\Mettaton_SpriteSheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Logic\Fight\UndertaleFightLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
