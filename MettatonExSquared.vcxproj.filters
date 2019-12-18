@@ -99,6 +99,9 @@
     <ClCompile Include="Source\Graph\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Headers\Scenes\Fight\UndertaleFightScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\GameStateHandler.h">
@@ -171,6 +174,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\CoreComponents\MTT_LoadingArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scenes\Fight\UndertaleFightScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleEnemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graph\Fight\UndertaleFightGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

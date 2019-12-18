@@ -31,5 +31,4 @@ public:
 	Player* player;
 
 
-
 };
