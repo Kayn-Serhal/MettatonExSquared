@@ -2,6 +2,7 @@
 #include "../Graph.h"
 #include "../../CoreComponents/MTT_Texture.h"
 #include "../../GameComponents/Player/Player.h"
+#include "../../GameComponents/Enemy/UndertaleMode/UndertaleEnemy.h"
 #include <string>
 
 
@@ -14,9 +15,15 @@ public:
 		this->load();
 	}
 
+	void update();
 
+	void load();
 
+	void free();
 
+	UndertaleEnemy* enemy = 0;
 
+	Player* player = 0;
 
+	SDL_Rect dialogueBox;
 };

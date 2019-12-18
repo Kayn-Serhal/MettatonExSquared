@@ -1,7 +1,7 @@
 #pragma once
 #include "../Scene.h"
 #include "../../GameComponents/Player/Player.h"
-#include "../../GameComponents/Enemy/UndertaleEnemy.h"
+#include "../../GameComponents/Enemy/UndertaleMode/UndertaleEnemy.h"
 
 class UndertaleFightScene : public Scene
 {

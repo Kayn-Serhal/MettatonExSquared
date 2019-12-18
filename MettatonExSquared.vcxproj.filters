@@ -179,10 +179,13 @@
     <ClInclude Include="Headers\Scenes\Fight\UndertaleFightScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleEnemy.h">
+    <ClInclude Include="Headers\Graph\Fight\UndertaleFightGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Graph\Fight\UndertaleFightGraph.h">
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\UndertaleEnemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameComponents\Enemy\UndertaleMode\Mettaton\Mettaton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
