@@ -9,6 +9,7 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 	this->lastXCoorOfPlayer = this->player->getX();
 	this->lastYCoorOfPlayer = this->player->getY();
 
+
 	if (keys[SDL_SCANCODE_RIGHT])
 	{
 		this->player->moveRight();
@@ -35,6 +36,13 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 
 	else this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
 
+	for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+	{
+		while (this->checkIfPlayerColliding(asset))
+		{
+			this->cancelLastMove();
+		}
+	}
 
 	//this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat); //Do not ever, ever call this function after the check if loading area or everything will burn to ashes.
 																			//Anyway. the fun thing about this function is that it needs to be updated in order to deal with the list of 
@@ -51,13 +59,13 @@ void OverWorldLogic::free()
 	//nothing to free, yet.
 }
 
-void OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
+bool OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
 {
 	if (object) {
 
 		if (checkCollisionsBetweenTwoRectangles(this->player->getHitbox(), object->hitbox))
 		{
-			this->cancelLastMove();
+			//
 		}
 	}
 }
@@ -146,6 +154,6 @@ bool OverWorldLogic::checkCollisionsBetweenTwoRectangles(SDL_Rect a, SDL_Rect b)
 
 void OverWorldLogic::cancelLastMove()
 {
-	this->player->setX(this->lastXCoorOfPlayer);
-	this->player->setY(this->lastYCoorOfPlayer);
+	this->player->setX(this->player->getPreviousX());
+	this->player->setY(this->player->getPreviousY());
 }

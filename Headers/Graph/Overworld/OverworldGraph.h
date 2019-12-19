@@ -34,6 +34,7 @@ public:
 		this->pathAssets = LEVEL_FOLDER_ROOT + this->area + "\\" + this->subArea + "\\";
 
 		this ->loadingAreas = MTT_JsonFactory::listOfLoadingAreasFromJsonFile(this->pathAssets +LOADINGAREAS_FILE);
+		this->areaAssets = MTT_JsonFactory::listOfAssetsFromJsonFile(this->pathAssets + ASSETS_DEFINITION_FILE);
 		
 
 		this->load();

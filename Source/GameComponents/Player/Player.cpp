@@ -57,12 +57,24 @@ int Player::getY()
 
 void Player::setX(int newX)
 {
+	this->previousX = this->x;
 	this->x = this->playerGraphic.x = newX;
 }
 
 void Player::setY(int newY)
 {
+	this->previousX = this->x;
 	this->y = this->playerGraphic.y = newY;
+}
+
+int Player::getPreviousX()
+{
+	return previousX;
+}
+
+int Player::getPreviousY()
+{
+	return previousY;
 }
 
 

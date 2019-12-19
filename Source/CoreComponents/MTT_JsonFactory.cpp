@@ -2,12 +2,44 @@
 #include "../../rapidjson/document.h"
 #include "../../rapidjson/istreamwrapper.h"
 #include  <fstream>
+#include "../../Headers/GameComponents/Cat.h"
+#include <map>
+#include <string>
 
 using namespace rapidjson;
 
+
+//That's going to be a bit rocky
+//But oh boy it runs
+template<typename T> MTT_GraphicalObject* createInstance() { return new T; }
+
+
 std::vector<MTT_GraphicalObject*> MTT_JsonFactory::listOfAssetsFromJsonFile(std::string relativePathToJsonFile)
 {
-	return std::vector<MTT_GraphicalObject*>();
+
+	std::ifstream ifs(relativePathToJsonFile);
+
+	IStreamWrapper isw(ifs);
+	Document d;
+	d.ParseStream(isw);
+
+	std::vector<MTT_GraphicalObject*> superMarioBrothersSuperShow; //it's the superMarioBrothersSuperShow! It contains all the assets.
+
+	const Value& v = d["areaAssets"];
+	for (SizeType i = 0; i < v.Size(); i++)
+	{
+		MTT_GraphicalObject* porgus = MTT_JsonFactory::objectFromString(v[i]["NameAsset"].GetString());
+		porgus->x = (v[i]["x"].GetInt());
+		porgus->y = (v[i]["y"].GetInt());
+		porgus->hitbox.x = porgus->x;
+		porgus->hitbox.y = porgus->y;
+		superMarioBrothersSuperShow.push_back(porgus);
+	}
+
+	return superMarioBrothersSuperShow;
+
+
+	
 }
 
 std::vector<MTT_LoadingArea> MTT_JsonFactory::listOfLoadingAreasFromJsonFile(std::string relativePathToJsonFile)
@@ -39,4 +71,17 @@ std::vector<MTT_LoadingArea> MTT_JsonFactory::listOfLoadingAreasFromJsonFile(std
 
 	return areas;
 
+}
+
+
+
+MTT_GraphicalObject* MTT_JsonFactory::objectFromString(std::string nameObject)
+{
+	typedef std::map<std::string, MTT_GraphicalObject * (*)()> map_type;
+	map_type map;
+	map["Cat"] = &createInstance<Cat>;
+	//Add more stuff here. We're just testing right now
+	//This thing could be initialized statically but you know i'm lazy
+
+	return map[nameObject]();
 }

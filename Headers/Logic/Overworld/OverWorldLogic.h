@@ -11,7 +11,7 @@ public:
 
 	void handleEvent(const Uint8* keys);
 	void free();
-	void checkIfPlayerColliding(MTT_GraphicalObject* object);
+	bool checkIfPlayerColliding(MTT_GraphicalObject* object);
 	void checkIfPlayerInLoadingArea();
 	SDL_Rect loadingArea{ 0,0,50,50 };
 	Player* player = NULL;

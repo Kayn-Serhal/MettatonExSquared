@@ -4,6 +4,8 @@
 void MTT_GraphicalStaticObject::loadSpriteFromFilename(std::string filename)
 {
 	spriteTexture.loadFromFile(filename, Graphics::graphicHandler.gameRenderer);
+	this->hitbox.x = this->x;
+	this->hitbox.y = this->y;
 	this->hitbox.h = spriteTexture.getHeight();
 	this->hitbox.w = spriteTexture.getWidth();
 }

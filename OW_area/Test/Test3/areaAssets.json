@@ -1,0 +1,9 @@
+{
+	"areaAssets": [{
+	
+		"NameAsset" : "Cat",
+		"x":200,
+		"y":200,	
+		"dialogue": "I'm just a random cat. I have not anything remotely interesting to say."
+		}]
+}

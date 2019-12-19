@@ -26,6 +26,9 @@ public :
 	void setX(int newX);
 	void setY(int newY);
 
+	int getPreviousX();
+	int getPreviousY();
+
 
 
 	PlayerGAO playerGraphic;
@@ -37,5 +40,7 @@ private:
 
 	int x;
 	int y;
+	int previousX;
+	int previousY;
 
 };
