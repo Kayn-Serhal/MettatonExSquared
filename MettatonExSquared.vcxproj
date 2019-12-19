@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\CoreComponents\MTT_JsonFactory.cpp" />
     <ClCompile Include="Source\Graph\Fight\UndertaleFightGraph.cpp" />
     <ClCompile Include="Source\Scenes\Fight\UndertaleFightScene.cpp" />
     <ClCompile Include="Source\CoreComponents\MTT_SpriteSheet.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalAnimatedObject.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalObject.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_GraphicalStaticObject.h" />
+    <ClInclude Include="Headers\CoreComponents\MTT_JsonFactory.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_LoadingArea.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_Texture.h" />
     <ClInclude Include="Headers\CoreComponents\MTT_SpriteSheet.h" />

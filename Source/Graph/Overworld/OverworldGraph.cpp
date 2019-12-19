@@ -51,12 +51,16 @@ void OverworldGraph::checkIfCameraIsTryingToGoOutOfBounds()
 void OverworldGraph::update() {
 	SDL_RenderClear(Graphics::graphicHandler.gameRenderer);
 
+	//Camera focus on player at all times
 	camera.x = (this->player->getX() + this->player->playerGraphic.getSpriteWidth() / 2) - 640 / 2;
 	camera.y = (this->player->getY() + this->player->playerGraphic.getSpriteHeight() / 2) - 480 / 2;
 	this->checkIfPlayerIsTryingToGoOutOfBoundsBecauseHeIsProllyADumbass();
 	this->checkIfCameraIsTryingToGoOutOfBounds();
 	this->backGroundTexture.render(0, 0, ((SDL_Rect*)&camera), this->renderer);
 	this->player->playerGraphic.render(camera);
-	if(aRandomCat)
-	this->aRandomCat->render(camera);
+	for (const auto& asset : this->areaAssets)
+	{
+		asset->render(this->camera);
+	}
+
 }

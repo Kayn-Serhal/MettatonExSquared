@@ -36,7 +36,7 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 	else this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
 
 
-	this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat); //Do not ever, ever call this function after the check if loading area or everything will burn to ashes.
+	//this->checkIfPlayerColliding(((OverworldGraph*)this->graph)->aRandomCat); //Do not ever, ever call this function after the check if loading area or everything will burn to ashes.
 																			//Anyway. the fun thing about this function is that it needs to be updated in order to deal with the list of 
 																			//Graphical objects later on.
 	this->checkIfPlayerInLoadingArea();

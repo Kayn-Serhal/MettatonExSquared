@@ -105,6 +105,9 @@
     <ClCompile Include="Source\Graph\Fight\UndertaleFightGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CoreComponents\MTT_JsonFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\GameStateHandler.h">
@@ -198,6 +201,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Logic\Fight\UndertaleFightLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\CoreComponents\MTT_JsonFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

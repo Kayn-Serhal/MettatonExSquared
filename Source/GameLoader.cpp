@@ -73,8 +73,6 @@ void GameLoader::loadOverworld()
 
 	Cat* cat = new Cat(350,350);
 	cat->loadSpriteFromFilename("Cat.png");
-	if(boolCat)
-	overworldGraphicalManager->aRandomCat = cat;
 	GameLoader::boolCat = !boolCat;
 
 	GameStateHandler::currentGamePlayState = GamePlayState::OVERWORLD;

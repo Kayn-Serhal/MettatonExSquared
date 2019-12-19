@@ -8,6 +8,7 @@
 #include  <fstream>
 #include "../../../rapidjson/istreamwrapper.h"
 #include <string>
+#include "../../CoreComponents/MTT_JsonFactory.h"
 
 using namespace rapidjson;
 
@@ -32,26 +33,7 @@ public:
 
 		this->pathAssets = LEVEL_FOLDER_ROOT + this->area + "\\" + this->subArea + "\\";
 
-		std::ifstream ifs(this->pathAssets + LOADINGAREAS_FILE);
-		IStreamWrapper isw(ifs);
-		Document d;
-		d.ParseStream(isw);
-		
-		const Value& v = d["loadingAreas"];
-		for (SizeType i = 0; i < v.Size(); i++)
-		{
-			MTT_LoadingArea area;
-			area.loadingAreaCoordinates.h = v[i]["loadingAreaCoordinates"]["h"].GetInt();
-			area.loadingAreaCoordinates.w = v[i]["loadingAreaCoordinates"]["w"].GetInt();
-			area.loadingAreaCoordinates.x = v[i]["loadingAreaCoordinates"]["x"].GetInt();
-			area.loadingAreaCoordinates.y = v[i]["loadingAreaCoordinates"]["y"].GetInt();
-
-			area.zoneOfDestination = v[i]["zoneOfDestination"].GetString();
-			area.subZoneOfDestination = v[i]["subZoneOfDestination"].GetString();
-			area.destinationX = v[i]["destinationX"].GetInt();
-			area.destinationY = v[i]["destinationY"].GetInt();
-			this->loadingAreas.push_back(area);
-		}
+		this ->loadingAreas = MTT_JsonFactory::listOfLoadingAreasFromJsonFile(this->pathAssets +LOADINGAREAS_FILE);
 		
 
 		this->load();
@@ -71,10 +53,10 @@ public:
 	
 
 	Player* player = 0;
-	Cat* aRandomCat = 0;
 
 
 	std::vector<MTT_LoadingArea> loadingAreas;
+	std::vector<MTT_GraphicalObject*> areaAssets;
 
 
 private:
