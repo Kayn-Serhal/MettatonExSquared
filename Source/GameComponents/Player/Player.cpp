@@ -67,17 +67,6 @@ void Player::setY(int newY)
 	this->y = this->playerGraphic.y = this->playerGraphic.hitbox.y= newY;
 }
 
-int Player::getPreviousX()
-{
-	// previousX;
-	return 0;
-}
-
-int Player::getPreviousY()
-{
-	// previousY;
-	return 0;
-}
 
 
 
