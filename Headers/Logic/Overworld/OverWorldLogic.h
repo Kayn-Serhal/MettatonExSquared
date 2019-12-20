@@ -21,9 +21,5 @@ public:
 
 private:
 	bool checkCollisionsBetweenTwoRectangles(SDL_Rect rect1, SDL_Rect rect2);
-	void cancelLastMove();
 
-	typedef struct { int previousX; int previousY; } roll;
-
-	std::vector<roll> lastMoves;
 };

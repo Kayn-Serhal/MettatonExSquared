@@ -26,11 +26,6 @@ public :
 	void setX(int newX);
 	void setY(int newY);
 
-	int getPreviousX();
-	int getPreviousY();
-
-
-
 	PlayerGAO playerGraphic;
 
 	bool loadingZoneLifeInsurance = false; // This boolean is here in order to prevent the player to get stuck if imprecisions in the destinationx or destination y 
@@ -40,7 +35,5 @@ private:
 
 	int x;
 	int y;
-	//int previousX;
-	//int previousY;
 
 };
