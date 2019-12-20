@@ -5,13 +5,14 @@
 
 void OverWorldLogic::handleEvent(const Uint8* keys)
 {
+	this->lastMoves.push_back({ this->player->getX(), this->player->getY() });
+	if (this->lastMoves.size() > 200) this->lastMoves.erase(this->lastMoves.begin());
 
-	this->lastXCoorOfPlayer = this->player->getX();
-	this->lastYCoorOfPlayer = this->player->getY();
 
 
 	if (keys[SDL_SCANCODE_RIGHT])
 	{
+
 		this->player->moveRight();
 		this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT; //putting that in player could be a good idea	
 	}
@@ -38,9 +39,10 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 
 	for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
 	{
-		while (this->checkIfPlayerColliding(asset))
+		while(this->checkIfPlayerColliding(asset))
 		{
 			this->cancelLastMove();
+			
 		}
 	}
 
@@ -63,9 +65,9 @@ bool OverWorldLogic::checkIfPlayerColliding(MTT_GraphicalObject* object)
 {
 	if (object) {
 
-		if (checkCollisionsBetweenTwoRectangles(this->player->getHitbox(), object->hitbox))
+		if (checkCollisionsBetweenTwoRectangles(this->player->playerGraphic.hitbox, object->hitbox))
 		{
-			//
+			return true;
 		}
 	}
 }
@@ -154,6 +156,9 @@ bool OverWorldLogic::checkCollisionsBetweenTwoRectangles(SDL_Rect a, SDL_Rect b)
 
 void OverWorldLogic::cancelLastMove()
 {
-	this->player->setX(this->player->getPreviousX());
-	this->player->setY(this->player->getPreviousY());
+	this->player->setX(this->lastMoves.back().previousX);
+	this->player->setY(this->lastMoves.back().previousY);
+	graph->camera.x = (this->player->getX() + this->player->playerGraphic.getSpriteWidth() / 2) - 640 / 2;
+	graph->camera.y = (this->player->getY() + this->player->playerGraphic.getSpriteHeight() / 2) - 480 / 2;
+	this->lastMoves.pop_back();
 }

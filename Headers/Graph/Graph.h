@@ -8,11 +8,12 @@ public:
 	Graph(SDL_Renderer* renderer);
 	virtual void update() = 0;
 	virtual void free() =0;
+	Camera camera;
 
 protected : 
 	SDL_Renderer* renderer;
-	virtual void load() = 0;
-	Camera camera;
+	virtual void load() =  0;
+
 
 
 

@@ -40,7 +40,7 @@ private:
 
 	int x;
 	int y;
-	int previousX;
-	int previousY;
+	//int previousX;
+	//int previousY;
 
 };

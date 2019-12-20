@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Logic/Logic.h"
 #include "../../Graph/Overworld/OverworldGraph.h"
+#include <vector>
 
 
 class OverWorldLogic : public Logic {
@@ -22,8 +23,7 @@ private:
 	bool checkCollisionsBetweenTwoRectangles(SDL_Rect rect1, SDL_Rect rect2);
 	void cancelLastMove();
 
-	int lastXCoorOfPlayer = 0;
-	int lastYCoorOfPlayer = 0;
+	typedef struct { int previousX; int previousY; } roll;
 
-
+	std::vector<roll> lastMoves;
 };
