@@ -28,11 +28,14 @@ std::vector<MTT_GraphicalObject*> MTT_JsonFactory::listOfAssetsFromJsonFile(std:
 	const Value& v = d["areaAssets"];
 	for (SizeType i = 0; i < v.Size(); i++)
 	{
-		MTT_GraphicalObject* porgus = MTT_JsonFactory::objectFromString(v[i]["NameAsset"].GetString());
+		MTT_GraphicalObject* porgus = MTT_JsonFactory::objectFromString(v[i]["NameAsset"].GetString()); //just the object we are trying to fill rn.
+																										//I was probably stoned when i did this so porgus seemed like a cool
+																										//variable name.
 		porgus->x = (v[i]["x"].GetInt());
 		porgus->y = (v[i]["y"].GetInt());
 		porgus->hitbox.x = porgus->x;
 		porgus->hitbox.y = porgus->y;
+		porgus->dialogue = (v[i]["dialogue"]).GetString();
 		superMarioBrothersSuperShow.push_back(porgus);
 	}
 
@@ -82,6 +85,7 @@ MTT_GraphicalObject* MTT_JsonFactory::objectFromString(std::string nameObject)
 	map["Cat"] = &createInstance<Cat>;
 	//Add more stuff here. We're just testing right now
 	//This thing could be initialized statically but you know i'm lazy
+	//Best performance will result of such choice tho
 
 	return map[nameObject]();
 }

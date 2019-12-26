@@ -7,7 +7,6 @@ Player::Player()
 	this->y = 200;
 	this->playerGraphic.x = x;
 	this->playerGraphic.y = y;
-
 }
 
 Player::Player(int x, int y)
@@ -19,24 +18,28 @@ Player::Player(int x, int y)
 void Player::moveUp()
 {
 	this->y -= VELOCITY;
+	this->playerGraphic.orientation = Orientation::NORTH;
 	this->playerGraphic.y = y;
 }
 
 void Player::moveDown()
 {
 	this->y += VELOCITY;
+	this->playerGraphic.orientation = Orientation::SOUTH;
 	this->playerGraphic.y = y;
 }
 
 void Player::moveLeft()
 {
 	this->x -= VELOCITY;
+	this->playerGraphic.orientation = Orientation::WEST;
 	this->playerGraphic.x = x;
 }
 
 void Player::moveRight()
 {
 	this->x += VELOCITY;
+	this->playerGraphic.orientation = Orientation::EAST;
 	this->playerGraphic.x = x;
 }
 

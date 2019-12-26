@@ -26,6 +26,7 @@ public :
 	void setX(int newX);
 	void setY(int newY);
 
+	bool canMoveAndInteract = true;
 	PlayerGAO playerGraphic;
 
 	bool loadingZoneLifeInsurance = false; // This boolean is here in order to prevent the player to get stuck if imprecisions in the destinationx or destination y 

@@ -71,6 +71,10 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 		}
 	}
 
+	else if (keys[SDL_SCANCODE_E])
+	{
+		this->checkIfInteractableObjectInFrontOfPlayer();
+	}
 	else this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
 
 	this->checkIfPlayerInLoadingArea();
@@ -173,4 +177,40 @@ bool OverWorldLogic::checkCollisionsBetweenTwoRectangles(SDL_Rect a, SDL_Rect b)
         return false;
     }
     return true;
+}
+
+void OverWorldLogic::checkIfInteractableObjectInFrontOfPlayer()
+{
+
+	SDL_Rect checkRect = player->getHitbox();
+
+	switch (player->playerGraphic.orientation) {
+
+	case Orientation::NORTH:
+		checkRect.y -= 10;
+		break;
+
+	case Orientation::SOUTH:
+		checkRect.y += 10;
+		break;
+
+	case Orientation::EAST:
+		checkRect.x -= 10;
+		break;
+
+	case Orientation::WEST:
+		checkRect.x += 10;
+		break;
+
+	default: break;
+	}
+
+	for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+	{
+		if (checkCollisionsBetweenTwoRectangles(checkRect, asset->hitbox))
+		{
+			//do shit
+		}
+	}
+
 }
