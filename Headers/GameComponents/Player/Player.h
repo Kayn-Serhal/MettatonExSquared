@@ -1,6 +1,9 @@
 #pragma once
 #include "PlayerGAO.h"
 
+enum class PlayerOverworldStatus {TALKING_OR_EXAMINING, WALKING, IDLE};
+
+//It's going to be one heck of a class! 
 class Player {
 
 public :
@@ -26,7 +29,8 @@ public :
 	void setX(int newX);
 	void setY(int newY);
 
-	bool canMoveAndInteract = true;
+	PlayerOverworldStatus currentStatus = PlayerOverworldStatus::IDLE;
+
 	PlayerGAO playerGraphic;
 
 	bool loadingZoneLifeInsurance = false; // This boolean is here in order to prevent the player to get stuck if imprecisions in the destinationx or destination y 

@@ -1,9 +1,11 @@
 {
-	"areaAssets": [{
-	
-		"NameAsset" : "Cat",
-		"x":200,
-		"y":600,	
-		"dialogue": "I'm just a random cat. I have not anything remotely interesting to say."
-		}]
+	"areaAssets": [
+		{
+
+			"NameAsset": "Cat",
+			"x": 200,
+			"y": 600,
+			"dialogues": [ "I'm just a random cat. I have not anything remotely interesting to say.", "no really." ]
+		}
+	]
 }

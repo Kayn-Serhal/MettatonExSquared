@@ -35,7 +35,14 @@ std::vector<MTT_GraphicalObject*> MTT_JsonFactory::listOfAssetsFromJsonFile(std:
 		porgus->y = (v[i]["y"].GetInt());
 		porgus->hitbox.x = porgus->x;
 		porgus->hitbox.y = porgus->y;
-		porgus->dialogue = (v[i]["dialogue"]).GetString();
+
+		//I'll fucking do it again!
+		const Value& interactiveTexts = v[i]["dialogues"];
+		for (SizeType ITSize = 0; ITSize < interactiveTexts.Size(); ITSize++)
+		{
+			porgus->textualInteractions.push_back(interactiveTexts[ITSize].GetString());
+		}
+
 		superMarioBrothersSuperShow.push_back(porgus);
 	}
 

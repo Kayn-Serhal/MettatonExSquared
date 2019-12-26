@@ -1,6 +1,7 @@
 #pragma once
 #include "MTT_Texture.h"
 #include <string>
+#include <vector>
 #include "../Graph/Camera.h"
 
 
@@ -8,12 +9,7 @@ enum Orientation {NORTH,EAST,WEST,SOUTH, UNDEFINED};
 
 class MTT_GraphicalObject {
 
-
-
 public:
-
-
-
 
 	MTT_GraphicalObject();
 	MTT_GraphicalObject(int x, int y);
@@ -23,10 +19,10 @@ public:
 
 	Orientation orientation;
 
-	bool interactable = false;
+	bool interactable = false; 
 
 	SDL_Rect hitbox = { 0,0,0,0 }; //kind of
-	std::string dialogue = "";
+	std::vector<std::string> textualInteractions; //The shit the thing is going to say in the overworld. Each string represents a part of the message.
 
 	virtual void render(Camera cam) = 0;
 

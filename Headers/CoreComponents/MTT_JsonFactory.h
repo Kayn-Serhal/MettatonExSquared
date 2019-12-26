@@ -11,11 +11,7 @@ public:
 	static std::vector<MTT_GraphicalObject*> listOfAssetsFromJsonFile(std::string relativePathToJsonFile);
 	static std::vector<MTT_LoadingArea> listOfLoadingAreasFromJsonFile(std::string relativePathToJsonFile);
 
-
-
-
 private:
 	static MTT_GraphicalObject* objectFromString(std::string nameObject);
-
 
 };

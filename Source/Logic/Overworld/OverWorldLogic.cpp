@@ -3,81 +3,109 @@
 #include "../../../Headers/GameLoader.h"
 
 
+//When refactoring time is gonna come, this will hit hard.
+//An idea could be to divise methods depending on the player status...?
+//I know, i'm supposed to think before coding.
+
+//But obviously, i ain't doing this.
+
 void OverWorldLogic::handleEvent(const Uint8* keys)
 {
 
 	SDL_Rect testHitboxForCollision = this->player->playerGraphic.hitbox;
-	bool playerCanMove = true;
-
-	if (keys[SDL_SCANCODE_RIGHT])
-	{
-		testHitboxForCollision.x += player->VELOCITY;
-		for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+	bool playerCanMove = player->currentStatus!= PlayerOverworldStatus::TALKING_OR_EXAMINING ||player->currentStatus == PlayerOverworldStatus::IDLE; //This is kind of rocky.
+																							  //Let's test it that way and change it afterwards when interactions works.
+	if (playerCanMove) {
+		if (keys[SDL_SCANCODE_RIGHT])
 		{
-			if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
+			testHitboxForCollision.x += player->VELOCITY;
+			for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+			{
+				if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
+				this->player->currentStatus = PlayerOverworldStatus::IDLE;
+			}
+
+			if (playerCanMove) {
+				this->player->moveRight();
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT;
+				this->player->currentStatus = PlayerOverworldStatus::WALKING;//putting that in player could be a good idea	
+			}
+		}
+
+		else if (keys[SDL_SCANCODE_LEFT])
+		{
+
+			testHitboxForCollision.x -= player->VELOCITY;
+			for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+			{
+				if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
+				this->player->currentStatus = PlayerOverworldStatus::IDLE;
+			}
+
+			if (playerCanMove)
+			{
+				this->player->moveLeft();
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_LEFT;
+				this->player->currentStatus = PlayerOverworldStatus::WALKING;
+			}
+		}
+
+		else if (keys[SDL_SCANCODE_UP])
+		{
+
+			testHitboxForCollision.y -= player->VELOCITY;
+			for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+			{
+				if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
+				this->player->currentStatus = PlayerOverworldStatus::IDLE;
+			}
+
+			if (playerCanMove) {
+				this->player->moveUp();
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_UP;
+				this->player->currentStatus = PlayerOverworldStatus::WALKING;
+			}
+		}
+
+		else if (keys[SDL_SCANCODE_DOWN])
+		{
+			testHitboxForCollision.y += player->VELOCITY;
+			for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
+			{
+				if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
+				{
+					this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
+					this->player->currentStatus = PlayerOverworldStatus::IDLE;
+				}
+			}
+			if (playerCanMove) {
+				this->player->moveDown();
+				this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_DOWN;
+			}
+		}
+
+		else if (keys[SDL_SCANCODE_E])
+		{
+			this->checkIfInteractableObjectInFrontOfPlayer();
+		}
+		else {
 			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
+			this->player->currentStatus = PlayerOverworldStatus::IDLE;
 		}
 
-		if (playerCanMove) {
-			this->player->moveRight();
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_RIGHT; //putting that in player could be a good idea	
-		}
+		this->checkIfPlayerInLoadingArea();
 	}
-
-	else if (keys[SDL_SCANCODE_LEFT])
+	else //we should be interacting with something/someone if we are here.
 	{
 
-		testHitboxForCollision.x -= player->VELOCITY;
-		for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
-		{
-			if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
-		}
 
-		if (playerCanMove)
-		{
-			this->player->moveLeft();
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_LEFT;
-		}
+
 	}
 
-	else if (keys[SDL_SCANCODE_UP])
-	{
 
-		testHitboxForCollision.y -= player->VELOCITY;
-		for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
-		{
-			if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
-		}
-
-		if (playerCanMove) {
-			this->player->moveUp();
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_UP;
-		}
-	}
-
-	else if (keys[SDL_SCANCODE_DOWN])
-	{
-		testHitboxForCollision.y += player->VELOCITY;
-		for (const auto& asset : ((OverworldGraph*)this->graph)->areaAssets)
-		{
-			if (checkCollisionsBetweenTwoRectangles(testHitboxForCollision, asset->hitbox)) playerCanMove = false;
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
-		}
-		if (playerCanMove) {
-			this->player->moveDown();
-			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::WALKING_DOWN;
-		}
-	}
-
-	else if (keys[SDL_SCANCODE_E])
-	{
-		this->checkIfInteractableObjectInFrontOfPlayer();
-	}
-	else this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
-
-	this->checkIfPlayerInLoadingArea();
 }
 
 void OverWorldLogic::free()
@@ -112,8 +140,6 @@ void OverWorldLogic::checkIfPlayerInLoadingArea()
 
 	bool hasReachedLoadingZone = false;
 	MTT_LoadingArea loadingArea;
-
-
 
 	for (std::vector<MTT_LoadingArea>::iterator it = ((OverworldGraph*)this->graph)->loadingAreas.begin(); it != ((OverworldGraph*)this->graph)->loadingAreas.end(); it++)
 	{
@@ -209,7 +235,7 @@ void OverWorldLogic::checkIfInteractableObjectInFrontOfPlayer()
 	{
 		if (checkCollisionsBetweenTwoRectangles(checkRect, asset->hitbox))
 		{
-			//do shit
+			this->player->currentStatus == PlayerOverworldStatus::TALKING_OR_EXAMINING;
 		}
 	}
 

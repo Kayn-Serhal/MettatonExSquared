@@ -60,13 +60,11 @@ int Player::getY()
 
 void Player::setX(int newX)
 {
-	//this->previousX = this->x;
 	this->x = this->playerGraphic.x = this->playerGraphic.hitbox.x = newX;
 }
 
 void Player::setY(int newY)
 {
-	//->previousX = this->x;
 	this->y = this->playerGraphic.y = this->playerGraphic.hitbox.y= newY;
 }
 

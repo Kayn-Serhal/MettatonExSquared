@@ -16,6 +16,7 @@ public:
 	void checkIfPlayerInLoadingArea();
 	SDL_Rect loadingArea{ 0,0,50,50 };
 	Player* player = NULL;
+	MTT_GraphicalObject* currentObjectThePlayerIsInteractingWith;
 
 	
 
