@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Headers\GameComponents\Cat.cpp" />
     <ClCompile Include="Source\CoreComponents\MTT_JsonFactory.cpp" />
     <ClCompile Include="Source\Graph\Fight\UndertaleFightGraph.cpp" />
     <ClCompile Include="Source\Scenes\Fight\UndertaleFightScene.cpp" />

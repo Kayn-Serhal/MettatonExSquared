@@ -145,12 +145,15 @@ void close()
 {
 }
 
-void processEvents(Uint32* lastTime)
+void processEvents(Uint32* lastTime, SDL_Event e)
 {
+
+	//Inputs::inputHandler.handleLowPrecisionEvent(e);
+	//This part is used to precess  "real time" events.
 	#define TICKSNEXTFRAME (1000/60)
 	if (SDL_GetTicks() - *lastTime > TICKSNEXTFRAME) {
 		const Uint8* k = SDL_GetKeyboardState(NULL);
-		Inputs::inputHandler.handleEvent(k);
+		Inputs::inputHandler.handleHighPrecisionEvent(k);
 		*lastTime = SDL_GetTicks();
 	}
 }
@@ -168,8 +171,9 @@ int main(int argc, char* args[])
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT)
 				quit = true;
+			Inputs::inputHandler.handleLowPrecisionEvent(e);
 		}
-		processEvents(&lastTime);
+		processEvents(&lastTime, e);
 		gamePlayLoop();
 		refreshScreen();
 	}

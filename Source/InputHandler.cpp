@@ -1,9 +1,15 @@
 #include "../Headers/InputHandler.h"
 
 
-void InputHandler::handleEvent(const Uint8* keys)
+
+void InputHandler::handleHighPrecisionEvent(const Uint8* keys)
 {
-	Inputs::inputHandler.currentLogic->handleEvent(keys);
+	Inputs::inputHandler.currentLogic->handleHighPrecisionEvent(keys);
+}
+
+void InputHandler::handleLowPrecisionEvent(SDL_Event e)
+{
+	Inputs::inputHandler.currentLogic->handleLowPrecisionEvent(e);
 }
 
 void InputHandler::setCurrentLogic(Logic* newLogic)

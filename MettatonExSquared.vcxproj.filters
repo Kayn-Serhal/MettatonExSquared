@@ -108,6 +108,9 @@
     <ClCompile Include="Source\CoreComponents\MTT_JsonFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Headers\GameComponents\Cat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\GameStateHandler.h">

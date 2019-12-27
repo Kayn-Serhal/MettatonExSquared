@@ -12,4 +12,8 @@ public:
 	;
 	Cat(int x, int y) : MTT_GraphicalStaticObject(x, y) {};
 
+
+
+	bool interact();
+
 };

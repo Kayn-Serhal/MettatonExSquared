@@ -6,7 +6,8 @@ class InputHandler {
 
 
 public:
-	 void handleEvent(const Uint8* keys);
+	 void handleHighPrecisionEvent(const Uint8* keys);	//High precision used for moving around and shit like that
+	 void handleLowPrecisionEvent(SDL_Event e);	// Low precision used for menus, interactions, you know
 	 void setCurrentLogic(Logic* newLogic);
 
 private:

@@ -24,7 +24,7 @@ public:
 	SDL_Rect* walkingRightFrames[12] = {};
 	SDL_Rect* walkingUpFrames[12] = {};
 	SDL_Rect* walkingDownFrames[12] = {};
-	SDL_Rect* idleFrames[1] = {};
+	SDL_Rect* idleFrames[4] = {};
 
 	int getSpriteWidth();
 	int getSpriteHeight();

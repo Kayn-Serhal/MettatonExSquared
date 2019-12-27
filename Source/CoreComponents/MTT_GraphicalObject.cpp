@@ -15,4 +15,10 @@ MTT_GraphicalObject::MTT_GraphicalObject(int x, int y)
 	this->hitbox.y = y;
 }
 
+bool MTT_GraphicalObject::interact()
+{
+	return false;
+	//Nothing happens if the function isn't OVERLOADED. 
+}
+
 

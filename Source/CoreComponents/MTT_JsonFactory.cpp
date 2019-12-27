@@ -38,6 +38,7 @@ std::vector<MTT_GraphicalObject*> MTT_JsonFactory::listOfAssetsFromJsonFile(std:
 
 		//I'll fucking do it again!
 		const Value& interactiveTexts = v[i]["dialogues"];
+		;
 		for (SizeType ITSize = 0; ITSize < interactiveTexts.Size(); ITSize++)
 		{
 			porgus->textualInteractions.push_back(interactiveTexts[ITSize].GetString());

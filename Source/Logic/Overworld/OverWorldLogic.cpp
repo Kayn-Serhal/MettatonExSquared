@@ -9,7 +9,7 @@
 
 //But obviously, i ain't doing this.
 
-void OverWorldLogic::handleEvent(const Uint8* keys)
+void OverWorldLogic::handleHighPrecisionEvent(const Uint8* keys)
 {
 
 	SDL_Rect testHitboxForCollision = this->player->playerGraphic.hitbox;
@@ -87,10 +87,6 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 			}
 		}
 
-		else if (keys[SDL_SCANCODE_E])
-		{
-			this->checkIfInteractableObjectInFrontOfPlayer();
-		}
 		else {
 			this->player->playerGraphic.currentAnimation = Animations::Player_Anims::IDLE;
 			this->player->currentStatus = PlayerOverworldStatus::IDLE;
@@ -98,15 +94,26 @@ void OverWorldLogic::handleEvent(const Uint8* keys)
 
 		this->checkIfPlayerInLoadingArea();
 	}
-	else //we should be interacting with something/someone if we are here.
-	{
-
-
-
-	}
-
-
 }
+
+void OverWorldLogic::handleLowPrecisionEvent(SDL_Event e)
+{
+	if (player->currentStatus != PlayerOverworldStatus::TALKING_OR_EXAMINING) 
+	{
+		if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_e)
+		this->checkIfInteractableObjectInFrontOfPlayer();
+	}
+	else
+	{
+		if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_e)
+		{
+			printf("WOOH, woh woh WOOOH");
+			player->currentStatus = PlayerOverworldStatus::IDLE;
+		}
+	}
+}
+
+
 
 void OverWorldLogic::free()
 {
@@ -221,11 +228,11 @@ void OverWorldLogic::checkIfInteractableObjectInFrontOfPlayer()
 		break;
 
 	case Orientation::EAST:
-		checkRect.x -= 10;
+		checkRect.x += 10;
 		break;
 
 	case Orientation::WEST:
-		checkRect.x += 10;
+		checkRect.x -= 10;
 		break;
 
 	default: break;
@@ -235,8 +242,10 @@ void OverWorldLogic::checkIfInteractableObjectInFrontOfPlayer()
 	{
 		if (checkCollisionsBetweenTwoRectangles(checkRect, asset->hitbox))
 		{
-			this->player->currentStatus == PlayerOverworldStatus::TALKING_OR_EXAMINING;
+			if (asset->interact())
+			{
+				player->currentStatus = PlayerOverworldStatus::TALKING_OR_EXAMINING;
+			}
 		}
 	}
-
 }
